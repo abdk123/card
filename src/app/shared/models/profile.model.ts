@@ -1,12 +1,14 @@
-import { IBackgroundShadow } from "./background-shadow.model";
-
-export interface IPtofile{
-    background:IBackgroundShadow;
+export interface IProfile{
+    primaryColor:string;
+    secondryColor:string;
+    primaryTextColor:string;
+    secondryTextColor:string;
+    forntType:string;
+    forntSize:string;
 }
 
-export class Ptofile implements IPtofile {
-    background: IBackgroundShadow;
-    constructor(data?: IPtofile) {
+export class Profile implements IProfile {
+    constructor(data?: IProfile) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -14,5 +16,11 @@ export class Ptofile implements IPtofile {
             }
         }
     }
+    primaryColor: string;
+    secondryColor: string;
+    primaryTextColor: string;
+    secondryTextColor: string;
+    forntType: string;
+    forntSize: string;
     
 }

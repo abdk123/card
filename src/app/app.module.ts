@@ -6,6 +6,8 @@ import { LiveViewComponent } from './live-view/live-view.component';
 import { SharedModule } from './shared/shared.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BgToolbarComponent } from './tools/bg-toolbar/bg-toolbar.component';
+import { StoreModule } from '@ngrx/store';
+import { shadowReducer } from './shared/state/profile/reducer/app.reducer';
 
 const BootstrapModuls=[
   ModalModule.forRoot()
@@ -21,6 +23,7 @@ const BootstrapModuls=[
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    StoreModule.forRoot({shadow:shadowReducer}),
     ...BootstrapModuls
   ],
   providers: [],

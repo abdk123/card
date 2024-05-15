@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-12 d-flex flex-nowrap justify-content-between px-2">
         <div class="px-1 w-100">
-            <input type="range" name="sd" [(ngModel)]="value" class="form-range" [value]="value" [min]="min" [max]="max">
+            <input type="range" name="sd" #ref (change)="changeRange(ref.value)" class="form-range" [value]="value" [min]="min" [max]="max">
         </div>
         <div class="px-1">
             <a class="text-primary"><i class="bi bi-arrow-repeat"></i></a>

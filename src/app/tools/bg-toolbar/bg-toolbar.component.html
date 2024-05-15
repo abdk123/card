@@ -12,16 +12,16 @@
         <div class="accordion-body">
           <div class="w-100">
             <div class="w-100">
-              <app-slider [min]="-15" [max]="15" [title]="'Horizontal Offset:'"></app-slider>              
+              <app-slider [min]="-15" [default]="0" [max]="15" (onChange)="onChangeHorizontal($event)" [title]="'Horizontal Offset:'"></app-slider>              
             </div>
             <div class="w-100">
-              <app-slider [title]="'Vertical Offset:'"></app-slider>              
+              <app-slider [min]="-15" [default]="0" [max]="15" (onChange)="onChangeVertical($event)" [title]="'Vertical Offset:'"></app-slider>              
             </div>
             <div class="w-100">
-              <app-slider [title]="'Blur Radius:'"></app-slider>              
+              <app-slider [min]="0" [default]="0" [max]="10" (onChange)="onChangeBlur($event)" [title]="'Blur Radius:'"></app-slider>              
             </div>
             <div class="w-100">
-              <app-slider [title]="'Spread Radius:'"></app-slider>              
+              <app-slider [min]="0" [default]="0" [max]="10" (onChange)="onChangeSpread($event)" [title]="'Spread Radius:'"></app-slider>              
             </div>
         </div>
         </div>

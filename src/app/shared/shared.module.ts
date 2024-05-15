@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SliderComponent } from './components/slider/slider.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { shadowReducer } from './state/profile/reducer/app.reducer';
 
 
 @NgModule({
@@ -12,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({shadow:shadowReducer}),
   ],
   exports:[
     SliderComponent
