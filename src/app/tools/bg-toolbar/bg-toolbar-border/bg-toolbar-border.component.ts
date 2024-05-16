@@ -59,7 +59,6 @@ export class BgToolbarBorderComponent implements OnInit {
 
   onChangeStyle(value:string){
     this.border.style = value;
-    console.log('style:'+value);
     this.onChange.emit(this.border);
   }
 }

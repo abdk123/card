@@ -16,7 +16,6 @@ export class ColorPickerComponent {
   }
 
   changeColor(value: string) {
-    console.log(value);
     this.value = value;
     this.onChange.emit(value);
   }

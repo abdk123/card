@@ -4,7 +4,8 @@ import { IShadow, ShadowModel } from "./common/shadow.model";
 export interface IBackground{
     padding:string;
     marging:string;
-    
+    height:string;
+    imageUrl:string;
 }
 
 export class BackgroundModel implements IBackground {
@@ -16,14 +17,15 @@ export class BackgroundModel implements IBackground {
             }
         }
     }
+    imageUrl:string;
     padding:string;
+    height:string;
     marging:string;
     boxShadow:ShadowModel;
     border:BorderModel;
     toJson(){
-        
         return {
-            'background': 'url(assets/images/bg.jpg)',
+            'background': 'url(http://localhost:21021/categories/bg1.png)',
             'background-repeat': 'no-repeat',
             'background-size': 'cover',
             'background-position': 'center',

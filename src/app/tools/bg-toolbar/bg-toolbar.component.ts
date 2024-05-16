@@ -9,6 +9,8 @@ import { update } from 'src/app/shared/state/profile/action/app.action';
 import { AppState } from 'src/app/shared/state/profile/app.state';
 import { selectProfile } from 'src/app/shared/state/profile/selectors/app.selector';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { UploadImageModalComponent } from 'src/app/shared/components/upload-image-modal/upload-image-modal.component';
 
 @Component({
   selector: 'app-bg-toolbar',
@@ -17,31 +19,52 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 })
 export class BgToolbarComponent implements OnInit {
   @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
-  profile$:Observable<ProfileModel> = this.store.select(selectProfile);
-  profile:ProfileModel = new ProfileModel();
-  constructor(private store:Store<AppState>){
-  }
+  profile$: Observable<ProfileModel> = this.store.select(selectProfile);
+  profile: ProfileModel = new ProfileModel();
+  constructor(
+    private store: Store<AppState>,
+    private _modalService: BsModalService,
+    public bsModalRef: BsModalRef
+  ) {}
 
   ngOnInit(): void {
-    this.profile$.subscribe((result)=>{
-      console.log(result);
+    this.profile$.subscribe((result) => {
       this.profile = result;
     });
   }
 
-  onChangeShadow(args:ShadowModel){
-      this.profile.background.boxShadow = args;
-    this.store.dispatch(update({profile:Object.assign({}, this.profile, {
-      details: { closed: true }
-    })}));
-  }
-  
-  onChangeBorder(args:BorderModel){
-    this.profile.background.border = args;
+  onChangeBasics(args: BackgroundModel){
     console.log(args);
-  this.store.dispatch(update({profile:Object.assign({}, this.profile, {
-    details: { closed: true }
-  })}));
-}
+    // this.store.dispatch(
+    //   update({
+    //     profile: Object.assign({}, this.profile, {
+    //       details: { closed: true },
+    //     }),
+    //   })
+    // );
+  }
+
+  onChangeShadow(args: ShadowModel) {
+    this.profile.background.boxShadow = args;
+    this.store.dispatch(
+      update({
+        profile: Object.assign({}, this.profile, {
+          details: { closed: true },
+        }),
+      })
+    );
+  }
+
+  onChangeBorder(args: BorderModel) {
+    this.profile.background.border = args;
+    this.store.dispatch(
+      update({
+        profile: Object.assign({}, this.profile, {
+          details: { closed: true },
+        }),
+      })
+    );
+  }
+
   
 }

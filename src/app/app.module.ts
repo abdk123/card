@@ -13,6 +13,7 @@ import { BgToolbarBorderComponent } from './tools/bg-toolbar/bg-toolbar-border/b
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BgToolbarGeneralComponent } from './tools/bg-toolbar/bg-toolbar-general/bg-toolbar-general.component';
 
 const BootstrapModuls = [
   ModalModule.forRoot(),
@@ -27,6 +28,7 @@ const BootstrapModuls = [
     BgToolbarComponent,
     BgToolbarShadowComponent,
     BgToolbarBorderComponent,
+    BgToolbarGeneralComponent,
   ],
   imports: [
     BrowserModule,

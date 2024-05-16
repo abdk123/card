@@ -23,6 +23,10 @@ export class SliderComponent implements OnInit {
     this.onChange.emit(value + this.unit);
   }
 
+  onKeypress(args:any){
+    this.onChange.emit(args.target.value + this.unit);
+  }
+
   reset(){
     this.value = this.default;
   }

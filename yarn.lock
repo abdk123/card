@@ -2911,6 +2911,11 @@ critters@0.0.20:
     postcss "^8.4.23"
     pretty-bytes "^5.3.0"
 
+cropperjs@>=1.5.12:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/cropperjs/-/cropperjs-1.6.2.tgz#d1a5d627d880581cca41b7901f06923500e4201b"
+  integrity sha512-nhymn9GdnV3CqiEHJVai54TULFAE3VshJTXSqSJKa8yXAKyBKDWdhHarnlIPrshJ0WMFTGuFvG02YjLXfPiuOA==
+
 cross-spawn@^7.0.0, cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz"
@@ -4977,11 +4982,26 @@ neo-async@^2.6.2:
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ngx-bootstrap@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-12.0.0.tgz#fc1c7f74aef3d098cf5ca458121e28d3790eedff"
-  integrity sha512-6/Hs+FT6peMc+Y2uiOm3IawG06Jh3gLQwwKRBF0U1OMlRbpx4KIyHS9GpZtMevtZaBsCRNfHKiSxwsnvn9wx0Q==
+ngx-bootstrap@10.3.0:
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-10.3.0.tgz#688e7df7c8b4302ce342a13c4b49c4d67d117311"
+  integrity sha512-Ok9umbq4tqJSXMy/5/+2VZJHcwj7hD3a3x2KkF1A+f0e70BARY8rfr9QKjGgvywWNyZMf0Z5PvE1WEeEiMvCkA==
   dependencies:
+    tslib "^2.3.0"
+
+ngx-image-cropper@^6.3.2:
+  version "6.3.4"
+  resolved "https://registry.yarnpkg.com/ngx-image-cropper/-/ngx-image-cropper-6.3.4.tgz#f56065f029c544c0860678ad531fdaa98be4cf30"
+  integrity sha512-zLJ5eDtHbQ58Q3cma5OfEgSUuCeIx/1G2ix3ZrRBXydPchJXLqnBEAq5r/PgjN/pwZ1S2+gDboPDjIqTvqwc6A==
+  dependencies:
+    tslib "^2.3.0"
+
+ngx-photo-editor@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/ngx-photo-editor/-/ngx-photo-editor-0.4.4.tgz#e7ea2dc9c78bd556c3362348df829bcfc85f3de3"
+  integrity sha512-0EshwDxPawNUtQdyr2Kn/aKn3q62P9w4RlvW3zffgghMF63MO5wooTzdZSzOSwYFEZ7BOh+H3lOljzeMIOcT7A==
+  dependencies:
+    cropperjs ">=1.5.12"
     tslib "^2.3.0"
 
 nice-napi@^1.0.2:

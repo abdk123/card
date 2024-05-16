@@ -1,0 +1,43 @@
+<form>
+  <!-- Header -->
+  <div class="modal-header">
+    <h4 class="modal-title">Upload Image</h4>
+  </div>
+  <!-- /Header -->
+  <!-- Body -->
+  <div class="modal-body">
+    <input type="file" class="form-control" id="upload-image" name="uploadImage" (change)="fileChangeEvent($event)" />
+
+    <!-- <button (click)="changeZoom(-0.01)">zoom out</button>
+        <button (click)="changeZoom(+0.01)">zoom in</button>
+        <span>{{ scale * 100 | number }}</span>
+        <br />
+        <button (click)="updateRotation(-1)">rotate left</button>
+        <button (click)="updateRotation(+1)">rotate right</button>
+        <span>{{ rotation }}</span>
+        <br />
+        <button (click)="resetImage()">Reset</button> -->
+      <div class="d-flex justify-content-center" style="display: block; height: 300px;">
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="false" [transform]="transform"
+        [style.display]="showCropper ? null : 'none'" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+        (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"
+        ></image-cropper>
+  
+      </div>
+    
+    <img [src]="croppedImage" style="display: none;" />
+  </div>
+
+  <!-- /Body -->
+  <!-- Footer -->
+
+  <div class="modal-footer justify-content-between ">
+    <button type="button" class="btn btn-outline-danger" (click)="bsModalRef.hide()">
+      <i class="bi bi-close"> </i> Cancel
+    </button>
+    <button type="button" class="btn btn-outline-primary">
+      <i class=""></i> Save
+    </button>
+  </div>
+  <!-- /Footer -->
+</form>

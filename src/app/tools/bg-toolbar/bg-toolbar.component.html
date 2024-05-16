@@ -7,7 +7,10 @@
       <!-- General -->
       <tab heading="General">
         <div class="p-2">
-
+          <ng-container *ngIf="profile && profile.background">
+            <app-bg-toolbar-general [background]="profile.background" (onChange)="onChangeBasics($event)"></app-bg-toolbar-general>
+          </ng-container>
+          
         </div>
       </tab>
       <!-- /General -->
