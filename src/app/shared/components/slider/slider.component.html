@@ -2,7 +2,7 @@
     <div class="col-md-12 d-flex flex-nowrap justify-content-between px-2">
         <div><p class="fst-normal">{{title}}</p></div>
         <div>
-            <span class="px-1"><input type="number" [(ngModel)]="value" class="unit-input" /></span><span class="px-1">{{unit}}</span>
+            <span class="px-1"><input type="number" #slideInputRef (keypress)="changeRange(slideInputRef.value)" [(ngModel)]="value" class="unit-input" /></span><span class="px-1">{{unit}}</span>
         </div>
     </div>
     <div class="col-md-12 d-flex flex-nowrap justify-content-between px-2">

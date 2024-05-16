@@ -20,5 +20,17 @@ export class BackgroundModel implements IBackground {
     marging:string;
     boxShadow:ShadowModel;
     border:BorderModel;
-    
+    toJson(){
+        
+        return {
+            'background': 'url(assets/images/bg.jpg)',
+            'background-repeat': 'no-repeat',
+            'background-size': 'cover',
+            'background-position': 'center',
+            'height': '20rem',
+            ...this.boxShadow.toJson(),
+            ...this.border.toJSON()
+          };
+
+    }
 }

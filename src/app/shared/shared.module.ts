@@ -6,12 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { profileReducer } from './state/profile/reducer/app.reducer';
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
+import { SelectComponent } from './components/select/select.component';
 
 
 @NgModule({
   declarations: [
     SliderComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { ColorPickerComponent } from './components/color-picker/color-picker.com
   ],
   exports:[
     SliderComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    SelectComponent
   ]
 })
 export class SharedModule { }

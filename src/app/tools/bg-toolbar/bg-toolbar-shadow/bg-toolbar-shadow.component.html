@@ -1,28 +1,28 @@
-<div class="d-flex justify-content-between px-1 py-1">
+<div class="d-flex justify-content-between px-1 py-3">
     <h4 class="text-primary">
-      Shadow
+        Shadow
     </h4>
-    <button class="btn btn-sm btn-outline-primary mb-2"><i class="bi bi-eye"></i></button>
-  </div>
-  <div class="px-2">
+    <button class="btn btn-sm btn-outline-primary mb-2"><i class="bi bi-eye"></i> Suggestions</button>
+</div>
+<div class="px-2">
     <div class="w-100">
-      <div class="w-100 mb-2">
-        <app-slider [min]="-30" [default]="0" [max]="30" (onChange)="onChangeHorizontal($event)"
-          [title]="'Horizontal Offset:'"></app-slider>
-      </div>
-      <div class="w-100 mb-2">
-        <app-slider [min]="-30" [default]="0" [max]="30" (onChange)="onChangeVertical($event)"
-          [title]="'Vertical Offset:'"></app-slider>
-      </div>
-      <div class="w-100 mb-2">
-        <app-slider [min]="0" [default]="0" [max]="50" (onChange)="onChangeBlur($event)"
-          [title]="'Blur Radius:'"></app-slider>
-      </div>
-      <!-- <div class="w-100">
+        <div class="w-100 mb-2">
+            <app-slider [min]="-30" [default]="0" [max]="30" (onChange)="onChangeHorizontal($event)"
+                [title]="'Horizontal Offset:'"></app-slider>
+        </div>
+        <div class="w-100 mb-2">
+            <app-slider [min]="-30" [default]="0" [max]="30" (onChange)="onChangeVertical($event)"
+                [title]="'Vertical Offset:'"></app-slider>
+        </div>
+        <div class="w-100 mb-2">
+            <app-slider [min]="0" [default]="0" [max]="50" (onChange)="onChangeBlur($event)"
+                [title]="'Blur Radius:'"></app-slider>
+        </div>
+        <!-- <div class="w-100">
         <app-slider [min]="0" [default]="0" [max]="50" (onChange)="onChangeSpread($event)" [title]="'Spread Radius:'"></app-slider>              
       </div> -->
-      <div class="w-100 mb-1">
-        <app-color-picker (onChange)="onChangeColor($event)" [title]="'Shadow Color'"></app-color-picker>
-      </div>
+        <div class="w-100 mb-1">
+            <app-color-picker (onChange)="onChangeColor($event)" [title]="'Shadow Color'"></app-color-picker>
+        </div>
     </div>
-  </div>
+</div>

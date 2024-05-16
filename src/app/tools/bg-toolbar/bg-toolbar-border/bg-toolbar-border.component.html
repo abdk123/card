@@ -1,8 +1,8 @@
 <div class="d-flex justify-content-between px-1 py-1">
-    <h4 class="text-primary">
-        Shadow
-    </h4>
-    <button class="btn btn-sm btn-outline-primary mb-2"><i class="bi bi-eye"></i></button>
+    <h5 class="text-primary">
+        Border Radius
+    </h5>
+    <!-- <button class="btn btn-sm btn-outline-primary mb-2"><i class="bi bi-eye"></i></button> -->
 </div>
 <div class="px-2">
     <div class="w-100">
@@ -26,9 +26,26 @@
             <app-slider [min]="0" [default]="0" [max]="100" [unit]="'%'" (onChange)="onChangeBr($event)"
                 [title]="'Bottom Right:'"></app-slider>
         </div>
-        <div class="w-100 mb-1">
-            <app-color-picker (onChange)="onChangeColor($event)"
-             [title]="'Border Color'"></app-color-picker>
+    </div>
+    <hr>
+    <h5 class="text-primary">
+        Border Style
+    </h5>
+    <div class="px-2">
+        <div class="w-100 mb-2 d-flex justify-content-between">
+            <div class="w-50 px-2">
+                <app-color-picker (onChange)="onChangeColor($event)" [title]="'Border Color:'"></app-color-picker>
+            </div>
+            <div class="w-50 px-2">
+                <app-select [title]="'Style:'" [datasource]="borderStyles"
+                    (onChange)="onChangeStyle($event)"></app-select>
+            </div>
+
+        </div>
+        <div class="w-100">
+            <app-slider [min]="0" [default]="0" [max]="100" [unit]="'%'" (onChange)="onChangeBr($event)"
+                [title]="'Border Width:'"></app-slider>
         </div>
     </div>
 </div>
+<hr>

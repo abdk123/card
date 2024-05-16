@@ -20,5 +20,10 @@ export class ShadowModel implements IShadow {
     blurRadius: string;
     spreadRadius: string;
     color: string;
+    toJson(){
+      return {
+        'box-shadow': `${this.horizontalOffset} ${this.verticalOffset} ${this.blurRadius}  ${this.color}`
+      }
+    }
   }
   

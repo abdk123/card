@@ -3,29 +3,33 @@
     <h4 class="text-light">Background Image</h4>
   </div>
   <div class="w-100">
-    <table class="table table-striped">
-      <tbody>
-        <!-- Border -->
-        <tr>
-          <td>
-            <ng-container *ngIf="profile && profile.background && profile.background.border">
-              <app-bg-toolbar-border [border]="profile.background.border" (onChange)="onChangeBorder($event)"></app-bg-toolbar-border>
-            </ng-container>
-          </td>
-        </tr>
-        <!-- Shadow -->
-        <tr>
-          <td id="bg-box-shadow ">
-            <ng-container *ngIf="profile">
-              <app-bg-toolbar-shadow [boxShadow]="profile.background.boxShadow" (onChange)="onChangeShadow($event)"></app-bg-toolbar-shadow>
-            </ng-container>
-            
-          </td>
-        </tr>
-        <!-- /Shadow -->
-        
-      </tbody>
-    </table>
+    <tabset #staticTabs>
+      <!-- General -->
+      <tab heading="General">
+        <div class="p-2">
+
+        </div>
+      </tab>
+      <!-- /General -->
+      <!-- Border -->
+      <tab heading="Border">
+        <div class="p-2">
+        <ng-container *ngIf="profile && profile.background && profile.background.border">
+          <app-bg-toolbar-border [border]="profile.background.border" (onChange)="onChangeBorder($event)"></app-bg-toolbar-border>
+        </ng-container>
+      </div>
+      </tab>
+      <!-- /Border -->
+      <!-- Shadow -->
+      <tab heading="Shadow">
+        <div class="p-2">
+          <ng-container *ngIf="profile">
+            <app-bg-toolbar-shadow [boxShadow]="profile.background.boxShadow" (onChange)="onChangeShadow($event)"></app-bg-toolbar-shadow>
+          </ng-container>
+        </div>
+      </tab>
+      <!-- /Shadow -->
+    </tabset>
   </div>
 
 </div>

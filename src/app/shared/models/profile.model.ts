@@ -26,4 +26,5 @@ export class ProfileModel implements IProfile {
     forntSize: string;
     background:BackgroundModel;
 
+    
 }

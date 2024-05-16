@@ -47,17 +47,7 @@ export class LiveViewComponent implements OnInit {
 
   initialProfileHeader() {
     this.profile.subscribe((result)=>{
-      const val = `${result.background.boxShadow.horizontalOffset} ${result.background.boxShadow.verticalOffset} ${result.background.boxShadow.blurRadius}  ${result.background.boxShadow.color}`;
-      console.log(val);
-      this.style= {
-        'background': 'url(assets/images/bg.jpg)',
-        'background-repeat': 'no-repeat',
-        'background-size': 'cover',
-        'background-position': 'center',
-        'height': '20rem',
-        'border-radius': '10rem 1rem',
-        'box-shadow':val
-      };
+      this.style= result.background.toJson()
     })
   }
 }

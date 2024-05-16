@@ -4,23 +4,34 @@ import { BorderModel } from 'src/app/shared/models/common/border.model';
 @Component({
   selector: 'app-bg-toolbar-border',
   templateUrl: './bg-toolbar-border.component.html',
-  styleUrls: ['./bg-toolbar-border.component.css']
+  styleUrls: ['./bg-toolbar-border.component.css'],
 })
 export class BgToolbarBorderComponent implements OnInit {
+  @Input() border: BorderModel = new BorderModel();
+  @Output() onChange = new EventEmitter<BorderModel>();
 
-  @Input() border:BorderModel = new BorderModel();
-  @Output() onChange=new EventEmitter<BorderModel>();
-  
-  ngOnInit(): void {
-  }
+  borderStyles = [
+    { text: 'solid', value: 'solid' },
+    { text: 'dotted', value: 'dotted' },
+    { text: 'dashed', value: 'dashed' },
+    { text: 'double', value: 'double' },
+    { text: 'groove', value: 'groove' },
+    { text: 'ridge', value: 'ridge' },
+    { text: 'inset', value: 'inset' },
+    { text: 'outset', value: 'outset' },
+    { text: 'inherit', value: 'inherit' },
+    { text: 'hidden', value: 'hidden' },
+    { text: 'none', value: 'none' },
+  ];
+  ngOnInit(): void {}
 
-  onChangeAll(value:string) {
+  onChangeAll(value: string) {
     this.border.tlRedius = value;
     this.border.trRedius = value;
     this.border.blRedius = value;
     this.border.brRedius = value;
     this.onChange.emit(this.border);
-  } 
+  }
 
   onChangeTl(value: string) {
     this.border.tlRedius = value;
@@ -46,4 +57,9 @@ export class BgToolbarBorderComponent implements OnInit {
     this.onChange.emit(this.border);
   }
 
+  onChangeStyle(value:string){
+    this.border.style = value;
+    console.log('style:'+value);
+    this.onChange.emit(this.border);
+  }
 }

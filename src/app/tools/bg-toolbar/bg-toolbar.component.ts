@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { BackgroundModel } from 'src/app/shared/models/background.model';
@@ -8,6 +8,7 @@ import { ProfileModel } from 'src/app/shared/models/profile.model';
 import { update } from 'src/app/shared/state/profile/action/app.action';
 import { AppState } from 'src/app/shared/state/profile/app.state';
 import { selectProfile } from 'src/app/shared/state/profile/selectors/app.selector';
+import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
 @Component({
   selector: 'app-bg-toolbar',
@@ -15,6 +16,7 @@ import { selectProfile } from 'src/app/shared/state/profile/selectors/app.select
   styleUrls: ['./bg-toolbar.component.scss'],
 })
 export class BgToolbarComponent implements OnInit {
+  @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
   profile$:Observable<ProfileModel> = this.store.select(selectProfile);
   profile:ProfileModel = new ProfileModel();
   constructor(private store:Store<AppState>){
