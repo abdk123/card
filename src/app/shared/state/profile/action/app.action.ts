@@ -1,6 +1,8 @@
 import { createAction, props } from '@ngrx/store';
-import{Profile} from '../../../models/profile.model';
+import{ProfileModel} from '../../../models/profile.model';
+import { BackgroundModel } from 'src/app/shared/models/background.model';
 
-//export const initial = createAction('[BackgroungShadow] Add',  props<{ profile: Profile }>());
-export const update = createAction('[BackgroungShadow] Update', props<{ profile: Profile }>());
-export const clear = createAction('[BackgroungShadow] Clear');
+//export const initial = createAction('[Profile] Add',  props<{ profile: ProfileModel }>());
+export const update = createAction('[Profile] Update', props<{ profile: ProfileModel }>());
+//export const updateBackground = createAction('[BackgroundModel] updateBackground', props<{ background: BackgroundModel }>());
+export const clear = createAction('[Profile] Clear');

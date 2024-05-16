@@ -1,45 +1,31 @@
 <div class="mt-1">
-  <div class="p-2" style="background-color: #0d6efd;text-align:center;"><h4 class="text-light">Background Image</h4></div>
-  <div class="accordion" id="accordionPanelsStayOpenExample">
-    <!-- Shadow -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-          Shadow
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-        <div class="accordion-body">
-          <div class="w-100">
-            <div class="w-100">
-              <app-slider [min]="-15" [default]="0" [max]="15" (onChange)="onChangeHorizontal($event)" [title]="'Horizontal Offset:'"></app-slider>              
-            </div>
-            <div class="w-100">
-              <app-slider [min]="-15" [default]="0" [max]="15" (onChange)="onChangeVertical($event)" [title]="'Vertical Offset:'"></app-slider>              
-            </div>
-            <div class="w-100">
-              <app-slider [min]="0" [default]="0" [max]="10" (onChange)="onChangeBlur($event)" [title]="'Blur Radius:'"></app-slider>              
-            </div>
-            <div class="w-100">
-              <app-slider [min]="0" [default]="0" [max]="10" (onChange)="onChangeSpread($event)" [title]="'Spread Radius:'"></app-slider>              
-            </div>
-        </div>
-        </div>
-      </div>
-    </div>
-    <!-- /Shadow -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-          Accordion Item #2
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-        <div class="accordion-body">
-          
-        </div>
-      </div>
-    </div>
-    
+  <div class="p-2" style="background-color: #0d6efd;text-align:center;">
+    <h4 class="text-light">Background Image</h4>
   </div>
+  <div class="w-100">
+    <table class="table table-striped">
+      <tbody>
+        <!-- Border -->
+        <tr>
+          <td>
+            <ng-container *ngIf="profile && profile.background && profile.background.border">
+              <app-bg-toolbar-border [border]="profile.background.border" (onChange)="onChangeBorder($event)"></app-bg-toolbar-border>
+            </ng-container>
+          </td>
+        </tr>
+        <!-- Shadow -->
+        <tr>
+          <td id="bg-box-shadow ">
+            <ng-container *ngIf="profile">
+              <app-bg-toolbar-shadow [boxShadow]="profile.background.boxShadow" (onChange)="onChangeShadow($event)"></app-bg-toolbar-shadow>
+            </ng-container>
+            
+          </td>
+        </tr>
+        <!-- /Shadow -->
+        
+      </tbody>
+    </table>
+  </div>
+
 </div>

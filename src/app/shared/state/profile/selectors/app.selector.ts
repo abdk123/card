@@ -1,18 +1,16 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { AppState } from '../app.state';
-import { BackgroundShadow } from 'src/app/shared/models/background-shadow.model';
 
+export const selectAppState = createFeatureSelector<AppState>('profile');
 
-export const selectAppState = createFeatureSelector<AppState>('shadow');
-
-export const selectShadow = createSelector(
+export const selectProfile = createSelector(
   selectAppState,
-  (state: AppState) => state.shadow
+  (state: AppState) => state.profile
 );
 
 // get One favorite product by ID
-// export const selectShadowById = createSelector(
-//     selectShadow,
-//   (shadow: BackgroundShadow, props: { productId: number }) =>
-//     shadow.find(product => product.id === props.productId)
+// export const selectProfileById = createSelector(
+//     selectProfile,
+//   (profile: BackgroundProfile, props: { productId: number }) =>
+//     profile.find(product => product.id === props.productId)
 // );

@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-12 d-flex flex-nowrap justify-content-between px-2">
+        <div><p class="fst-normal">{{title}}</p></div>
+    </div>
+    <div class="col-md-12 d-flex flex-nowrap justify-content-between px-2">
+        <div class="px-1 w-100">
+            <input type="color" #colorRef (change)="changeColor(colorRef.value)" class="form-controle" [value]="value" >
+        </div>
+        <div class="px-1">
+            <span class="px-1"><input type="text" #colorInputRef (keypress)="changeColor(colorInputRef.value)" [(ngModel)]="value" class="color-input" /></span>
+        </div>
+    </div>
+</div>

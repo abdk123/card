@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { BackgroundShadow } from 'src/app/shared/models/background-shadow.model';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { BackgroundModel } from 'src/app/shared/models/background.model';
+import { BorderModel } from 'src/app/shared/models/common/border.model';
+import { ShadowModel } from 'src/app/shared/models/common/shadow.model';
+import { ProfileModel } from 'src/app/shared/models/profile.model';
 import { update } from 'src/app/shared/state/profile/action/app.action';
 import { AppState } from 'src/app/shared/state/profile/app.state';
+import { selectProfile } from 'src/app/shared/state/profile/selectors/app.selector';
 
 @Component({
   selector: 'app-bg-toolbar',
@@ -10,49 +15,31 @@ import { AppState } from 'src/app/shared/state/profile/app.state';
   styleUrls: ['./bg-toolbar.component.scss'],
 })
 export class BgToolbarComponent implements OnInit {
-  colorShadow: string = '#e9ecef';
-  shadowBox: BackgroundShadow = new BackgroundShadow();
-
+  profile$:Observable<ProfileModel> = this.store.select(selectProfile);
+  profile:ProfileModel = new ProfileModel();
   constructor(private store:Store<AppState>){
   }
 
   ngOnInit(): void {
-    this.shadowBox.color = this.colorShadow;
-    this.shadowBox.horizontalOffset = '0px';
-    this.shadowBox.verticalOffset = '0px';
-    this.shadowBox.blurRadius = '0px';
-    this.shadowBox.spreadRadius = '0px';
-    
-    this.store.dispatch(update({shadow:Object.assign({}, this.shadowBox, {
+    this.profile$.subscribe((result)=>{
+      console.log(result);
+      this.profile = result;
+    });
+  }
+
+  onChangeShadow(args:ShadowModel){
+      this.profile.background.boxShadow = args;
+    this.store.dispatch(update({profile:Object.assign({}, this.profile, {
       details: { closed: true }
     })}));
   }
-
-  onChangeHorizontal(value:string) {
-    this.shadowBox.horizontalOffset=value;
-    this.store.dispatch(update({shadow:Object.assign({}, this.shadowBox, {
-      details: { closed: true }
-    })}));
-  } 
-
-  onChangeVertical(value: string) {
-    this.shadowBox.verticalOffset = value;
-    this.store.dispatch(update({shadow:Object.assign({}, this.shadowBox, {
-      details: { closed: true }
-    })}));
-  }
-
-  onChangeBlur(value: string) {
-    this.shadowBox.blurRadius = value;
-    this.store.dispatch(update({shadow:Object.assign({}, this.shadowBox, {
-      details: { closed: true }
-    })}));
-  }
-
-  onChangeSpread(value: string) {
-    this.shadowBox.spreadRadius = value;
-    this.store.dispatch(update({shadow:Object.assign({}, this.shadowBox, {
-      details: { closed: true }
-    })}));
-  }
+  
+  onChangeBorder(args:BorderModel){
+    this.profile.background.border = args;
+    console.log(args);
+  this.store.dispatch(update({profile:Object.assign({}, this.profile, {
+    details: { closed: true }
+  })}));
+}
+  
 }

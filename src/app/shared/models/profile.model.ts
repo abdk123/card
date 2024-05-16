@@ -1,3 +1,5 @@
+import { BackgroundModel, IBackground } from "./background.model";
+
 export interface IProfile{
     primaryColor:string;
     secondryColor:string;
@@ -7,7 +9,7 @@ export interface IProfile{
     forntSize:string;
 }
 
-export class Profile implements IProfile {
+export class ProfileModel implements IProfile {
     constructor(data?: IProfile) {
         if (data) {
             for (var property in data) {
@@ -22,5 +24,6 @@ export class Profile implements IProfile {
     secondryTextColor: string;
     forntType: string;
     forntSize: string;
-    
+    background:BackgroundModel;
+
 }

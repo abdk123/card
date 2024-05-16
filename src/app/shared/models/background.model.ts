@@ -1,4 +1,5 @@
-import { IShadow, ShadowModel } from "./common/shadow.Model";
+import { BorderModel } from "./common/border.model";
+import { IShadow, ShadowModel } from "./common/shadow.model";
 
 export interface IBackground{
     padding:string;
@@ -18,7 +19,6 @@ export class BackgroundModel implements IBackground {
     padding:string;
     marging:string;
     boxShadow:ShadowModel;
-    setBoxShadow(shadow: IShadow){
-        this.boxShadow = shadow;
-    }
+    border:BorderModel;
+    
 }

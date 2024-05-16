@@ -7,26 +7,30 @@ import { SharedModule } from './shared/shared.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BgToolbarComponent } from './tools/bg-toolbar/bg-toolbar.component';
 import { StoreModule } from '@ngrx/store';
-import { shadowReducer } from './shared/state/profile/reducer/app.reducer';
+import { profileReducer } from './shared/state/profile/reducer/app.reducer';
+import { BgToolbarShadowComponent } from './tools/bg-toolbar/bg-toolbar-shadow/bg-toolbar-shadow.component';
+import { BgToolbarBorderComponent } from './tools/bg-toolbar/bg-toolbar-border/bg-toolbar-border.component';
 
-const BootstrapModuls=[
-  ModalModule.forRoot()
-]
+const BootstrapModuls = [ModalModule.forRoot()];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LiveViewComponent,
-    BgToolbarComponent
-  ],
+  declarations: [AppComponent, LiveViewComponent, BgToolbarComponent, BgToolbarShadowComponent, BgToolbarBorderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    StoreModule.forRoot({shadow:shadowReducer}),
-    ...BootstrapModuls
+    StoreModule.forRoot({ profile: profileReducer },
+    {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+        strictStateSerializability: false,
+        strictActionSerializability: false,
+      },
+    }),
+    ...BootstrapModuls,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

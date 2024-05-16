@@ -1,5 +1,5 @@
-import { BackgroundShadow } from '../../models/background-shadow.model';
+import { ProfileModel } from '../../models/profile.model';
 
 export interface AppState {
-  shadow: BackgroundShadow;
+  profile: ProfileModel;
 }

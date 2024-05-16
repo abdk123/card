@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BackgroundShadow } from '../shared/models/background-shadow.model';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../shared/state/profile/app.state';
 import { Observable } from 'rxjs';
-import { selectShadow } from '../shared/state/profile/selectors/app.selector';
+import { ProfileModel } from '../shared/models/profile.model';
+import { selectProfile } from '../shared/state/profile/selectors/app.selector';
 
 @Component({
   selector: 'app-live-view',
@@ -11,7 +11,7 @@ import { selectShadow } from '../shared/state/profile/selectors/app.selector';
   styleUrls: ['./live-view.component.css'],
 })
 export class LiveViewComponent implements OnInit {
-  shadowBox:Observable<BackgroundShadow> = this.store.select(selectShadow);
+  profile:Observable<ProfileModel> = this.store.pipe(select(selectProfile));
   imgProfile = {
     'width': '140px',
     'height': '140px',
@@ -46,8 +46,8 @@ export class LiveViewComponent implements OnInit {
   }
 
   initialProfileHeader() {
-    this.shadowBox.subscribe((shadow)=>{
-      const val = `${shadow.horizontalOffset} ${shadow.verticalOffset} ${shadow.blurRadius}  rgba(0, 0, 0, 0.15)`;
+    this.profile.subscribe((result)=>{
+      const val = `${result.background.boxShadow.horizontalOffset} ${result.background.boxShadow.verticalOffset} ${result.background.boxShadow.blurRadius}  ${result.background.boxShadow.color}`;
       console.log(val);
       this.style= {
         'background': 'url(assets/images/bg.jpg)',

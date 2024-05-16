@@ -10,7 +10,7 @@
             <input type="range" name="sd" #ref (change)="changeRange(ref.value)" class="form-range" [value]="value" [min]="min" [max]="max">
         </div>
         <div class="px-1">
-            <a class="text-primary"><i class="bi bi-arrow-repeat"></i></a>
+            <a class="text-primary" (click)="reset()"><i class="bi bi-arrow-repeat"></i></a>
         </div>
     </div>
 </div>

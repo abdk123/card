@@ -1,9 +1,11 @@
 export interface IBorder{
-    horizontalOffset: string;
-    verticalOffset: string;
-    blurRadius: string;
-    spreadRadius: string;
+    tlRedius: string;
+    trRedius: string;
+    blRedius: string;
+    brRedius: string;
+    size: string;
     color: string;
+    style: string;
 }
 
 export class BorderModel implements IBorder {
@@ -15,10 +17,19 @@ export class BorderModel implements IBorder {
         }
       }
     }
-    horizontalOffset: string;
-    verticalOffset: string;
-    blurRadius: string;
-    spreadRadius: string;
+    tlRedius: string;
+    trRedius: string;
+    blRedius: string;
+    brRedius: string;
+    size: string;
     color: string;
+    style: string;
+
+    toJSON() {
+      return {
+        'border-radius':`${this.tlRedius} ${this.trRedius} ${this.brRedius} ${this.blRedius}`,
+        'border':`${this.size} ${this.style} ${this.color}`,
+      }
+  }
   }
   

@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BackgroundShadow } from '../../models/background-shadow.model';
-import { Slider } from './slider.model';
 
 @Component({
   selector: 'app-slider',
@@ -8,7 +6,6 @@ import { Slider } from './slider.model';
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
-  shadow: BackgroundShadow = new BackgroundShadow();
   @Input() title: string = '';
   @Input() min: number = 0;
   @Input() max: number = 100;
@@ -24,5 +21,9 @@ export class SliderComponent implements OnInit {
   changeRange(value: string) {
     this.value = Number(value);
     this.onChange.emit(value + this.unit);
+  }
+
+  reset(){
+    this.value = this.default;
   }
 }
