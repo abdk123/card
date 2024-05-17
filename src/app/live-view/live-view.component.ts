@@ -25,19 +25,12 @@ export class LiveViewComponent implements OnInit {
     'margin': '0 calc(20% - (140px /2))',
     'margin-top': '-75px',
   };
-  bg = {
-    style: {
-      'background': 'url(assets/images/bg.jpg)',
-      'background-repeat': 'no-repeat',
-      'background-size': 'cover',
-      'background-position': 'center',
-      'height': '20rem',
-      'border-radius': '10rem 1rem',
-      'box-shadow':'0px 0px 0px 0px'
-    }
-  };
+  select(){
+    alert();
+  }
 
-  style:{};
+  bgStyle = {};
+  bgImageStyle:{};
   constructor(private store:Store<AppState>){
 
   }
@@ -47,7 +40,10 @@ export class LiveViewComponent implements OnInit {
 
   initialProfileHeader() {
     this.profile.subscribe((result)=>{
-      this.style= result.background.toJson()
+      this.bgStyle = {
+        'padding':result.background.spacing
+      }
+      this.bgImageStyle= result.background.toJson();
     })
   }
 }

@@ -10,6 +10,7 @@ import { SelectComponent } from './components/select/select.component';
 import { UploadImageModalComponent } from './components/upload-image-modal/upload-image-modal.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { HttpClientModule } from '@angular/common/http';
+import { RightModalComponent } from './components/right-modal/right-modal.component';
 
 
 
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     SliderComponent,
     ColorPickerComponent,
     SelectComponent,
-    UploadImageModalComponent
+    UploadImageModalComponent,
+    RightModalComponent
   ],
   imports: [
     CommonModule,

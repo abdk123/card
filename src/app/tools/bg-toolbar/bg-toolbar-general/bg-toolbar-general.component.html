@@ -1,1 +1,15 @@
-<button class="btn btn-outline-primary" (click)="showUploadDialog()"><i class="bi bi-upload"></i>  Upload Image</button>
+<div class="px-2">
+    <div class="w-100 d-flex justify-content-center px-2 py-2" style="align-items: center;">
+        <button class="btn btn-outline-primary" (click)="showUploadDialog()">
+            <i class="bi bi-upload"></i> Upload Image
+        </button>
+    </div>
+    <div class="w-100 py-2  ">
+        <app-slider [min]="15" [default]="20" [max]="30" [unit]="'rem'" (onChange)="onChangeHeight($event)"
+            [title]="'Image Height:'"></app-slider>
+    </div>
+    <div class="w-100 py-2">
+        <app-slider [min]="0" [default]="0" [max]="20" [unit]="'px'" (onChange)="onChangeSpace($event)"
+            [title]="'Padding:'"></app-slider>
+    </div>
+</div>

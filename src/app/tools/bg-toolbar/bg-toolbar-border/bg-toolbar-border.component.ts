@@ -61,4 +61,8 @@ export class BgToolbarBorderComponent implements OnInit {
     this.border.style = value;
     this.onChange.emit(this.border);
   }
+  onChangeSize(value:string){
+    this.border.size = value;
+    this.onChange.emit(this.border);
+  }
 }

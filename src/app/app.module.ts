@@ -14,11 +14,14 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BgToolbarGeneralComponent } from './tools/bg-toolbar/bg-toolbar-general/bg-toolbar-general.component';
+import { ToolbarComponent } from './tools/toolbar.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 const BootstrapModuls = [
   ModalModule.forRoot(),
   AccordionModule.forRoot(),
   TabsModule.forRoot(),
+  BsDropdownModule.forRoot()
 ];
 
 @NgModule({
@@ -29,6 +32,7 @@ const BootstrapModuls = [
     BgToolbarShadowComponent,
     BgToolbarBorderComponent,
     BgToolbarGeneralComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,

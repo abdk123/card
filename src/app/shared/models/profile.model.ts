@@ -1,4 +1,5 @@
 import { BackgroundModel, IBackground } from "./background.model";
+import { ProfileImageModel } from "./profile.Image.model";
 
 export interface IProfile{
     primaryColor:string;
@@ -25,6 +26,6 @@ export class ProfileModel implements IProfile {
     forntType: string;
     forntSize: string;
     background:BackgroundModel;
-
+    profileImage: ProfileImageModel;
     
 }

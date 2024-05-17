@@ -63,7 +63,9 @@ export class UploadImageModalComponent implements OnInit {
   }
 
   save(){
-
+    const url = `http://localhost:21021/categories/${this.file.fileName}`;
+    this.bsModalRef.hide();
+    this.onSave.emit(url);
   }
 
   create(body: FileDto){

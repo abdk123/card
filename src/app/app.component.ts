@@ -7,6 +7,7 @@ import { AppState } from './shared/state/profile/app.state';
 import { Store } from '@ngrx/store';
 import { update } from './shared/state/profile/action/app.action';
 import { BorderModel } from './shared/models/common/border.model';
+import { ProfileImageModel } from './shared/models/profile.Image.model';
 
 @Component({
   selector: 'app-root',
@@ -42,13 +43,14 @@ export class AppComponent implements OnInit {
     var profile = new ProfileModel();
     // initial profile
     profile.background = this.initialBackground();
+    profile.profileImage = this.initialAvatar();
     return profile;
   }
   
    initialBackground(): BackgroundModel {
     let background = new BackgroundModel();
-    background.padding = '0rem';
-    background.marging = '0rem';
+    background.spacing = '0rem';
+    background.height = '20rem';
     background.boxShadow = this.initialBackgroundShadow();
     background.border = this.initialBackgroundBorder();
     
@@ -72,6 +74,40 @@ export class AppComponent implements OnInit {
       trRedius:'0px',
       blRedius:'0px',
       brRedius:'0px',
+      size:'0px',
+      color:'#7a8590',
+      style:'solid'
+    });
+  }
+
+  // ===
+  initialAvatar(): ProfileImageModel {
+    let background = new ProfileImageModel();
+    background.size = '140px';
+    background.top = '-75px';
+    background.boxShadow = this.initialBackgroundShadow();
+    background.border = this.initialBackgroundBorder();
+    
+    return background;
+  }
+  
+  
+   initialAvatarShadow(): ShadowModel {
+    return new ShadowModel({
+      color: '#7a8590',
+      horizontalOffset: '0px',
+      verticalOffset: '0px',
+      blurRadius: '0px',
+      spreadRadius: '0px',
+    });
+  }
+
+  initialAvatarBorder(): BorderModel {
+    return new BorderModel({
+      tlRedius:'25%',
+      trRedius:'25%',
+      blRedius:'25%',
+      brRedius:'25%',
       size:'0px',
       color:'#7a8590',
       style:'solid'

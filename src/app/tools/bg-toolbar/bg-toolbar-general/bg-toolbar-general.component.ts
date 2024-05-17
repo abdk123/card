@@ -33,6 +33,19 @@ export class BgToolbarGeneralComponent implements OnInit {
       }
     });
 
-    uploadDialog.content.onSave.subscribe(() => {});
+    uploadDialog.content.onSave.subscribe((url:string) => {
+      this.background.imageUrl = url;
+      this.onChange.emit(this.background);
+    });
+  }
+
+  onChangeSpace(value:string){
+    this.background.spacing = value;
+      this.onChange.emit(this.background);
+  }
+
+  onChangeHeight(value:string){
+    this.background.height = value;
+      this.onChange.emit(this.background);
   }
 }
