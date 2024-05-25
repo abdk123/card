@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,13 +16,31 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BgToolbarGeneralComponent } from './tools/bg-toolbar/bg-toolbar-general/bg-toolbar-general.component';
 import { ToolbarComponent } from './tools/toolbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbThemeModule, NbUserModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { LiveViewMobileComponent } from './live-view/live-view-mobile/live-view-mobile.component';
+import { LiveViewPcComponent } from './live-view/live-view-pc/live-view-pc.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AppearanceComponent } from './pages/appearance/appearance.component';
 
-const BootstrapModuls = [
+
+const BootstrapModules = [
   ModalModule.forRoot(),
   AccordionModule.forRoot(),
   TabsModule.forRoot(),
   BsDropdownModule.forRoot()
 ];
+
+const NebularModules = [
+  NbThemeModule.forRoot(),
+  NbButtonModule,
+  NbLayoutModule,
+  NbIconModule,
+  NbEvaIconsModule,
+  NbUserModule,
+  NbCardModule
+]
 
 @NgModule({
   declarations: [
@@ -33,6 +51,11 @@ const BootstrapModuls = [
     BgToolbarBorderComponent,
     BgToolbarGeneralComponent,
     ToolbarComponent,
+    LiveViewMobileComponent,
+    LiveViewPcComponent,
+    NavbarComponent,
+    HomeComponent,
+    AppearanceComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +74,11 @@ const BootstrapModuls = [
         },
       }
     ),
-    ...BootstrapModuls,
+    ...BootstrapModules,
+    ...NebularModules
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

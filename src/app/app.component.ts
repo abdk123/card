@@ -8,34 +8,44 @@ import { Store } from '@ngrx/store';
 import { update } from './shared/state/profile/action/app.action';
 import { BorderModel } from './shared/models/common/border.model';
 import { ProfileImageModel } from './shared/models/profile.Image.model';
+import { SlideInOutAnimation } from './shared/animation/slideInOut';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [SlideInOutAnimation]
 })
 export class AppComponent implements OnInit {
-  profile:ProfileModel = new ProfileModel();
+  device = 'pc';
+  profile: ProfileModel = new ProfileModel();
   title = 'ocucard-app';
   modalRef?: BsModalRef;
   config = {
     backdrop: true,
     ignoreBackdropClick: true,
-    class: 'modal-right'
+    class: 'modal-right',
   };
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
-  constructor(private modalService: BsModalService,private store:Store<AppState>) {}
+  constructor(
+    private modalService: BsModalService,
+    private store: Store<AppState>
+  ) {}
   ngOnInit(): void {
     this.profile = this.initialProfile();
-    this.store.dispatch(update({profile:Object.assign({}, this.profile, {
-      details: { closed: true }
-    })}));
+    this.store.dispatch(
+      update({
+        profile: Object.assign({}, this.profile, {
+          details: { closed: true },
+        }),
+      })
+    );
   }
- 
+
   openModal() {
-    this.modalRef = this.modalService.show(this.template,this.config);
+    this.modalRef = this.modalService.show(this.template, this.config);
   }
-  
+
   //=========
   initialProfile(): ProfileModel {
     //Get from database by id
@@ -46,19 +56,18 @@ export class AppComponent implements OnInit {
     profile.profileImage = this.initialAvatar();
     return profile;
   }
-  
-   initialBackground(): BackgroundModel {
+
+  initialBackground(): BackgroundModel {
     let background = new BackgroundModel();
     background.spacing = '0rem';
     background.height = '20rem';
     background.boxShadow = this.initialBackgroundShadow();
     background.border = this.initialBackgroundBorder();
-    
+
     return background;
   }
-  
-  
-   initialBackgroundShadow(): ShadowModel {
+
+  initialBackgroundShadow(): ShadowModel {
     return new ShadowModel({
       color: '#7a8590',
       horizontalOffset: '0px',
@@ -70,13 +79,13 @@ export class AppComponent implements OnInit {
 
   initialBackgroundBorder(): BorderModel {
     return new BorderModel({
-      tlRedius:'0px',
-      trRedius:'0px',
-      blRedius:'0px',
-      brRedius:'0px',
-      size:'0px',
-      color:'#7a8590',
-      style:'solid'
+      tlRedius: '0px',
+      trRedius: '0px',
+      blRedius: '0px',
+      brRedius: '0px',
+      size: '0px',
+      color: '#7a8590',
+      style: 'solid',
     });
   }
 
@@ -87,12 +96,11 @@ export class AppComponent implements OnInit {
     background.top = '-75px';
     background.boxShadow = this.initialBackgroundShadow();
     background.border = this.initialBackgroundBorder();
-    
+
     return background;
   }
-  
-  
-   initialAvatarShadow(): ShadowModel {
+
+  initialAvatarShadow(): ShadowModel {
     return new ShadowModel({
       color: '#7a8590',
       horizontalOffset: '0px',
@@ -104,13 +112,20 @@ export class AppComponent implements OnInit {
 
   initialAvatarBorder(): BorderModel {
     return new BorderModel({
-      tlRedius:'25%',
-      trRedius:'25%',
-      blRedius:'25%',
-      brRedius:'25%',
-      size:'0px',
-      color:'#7a8590',
-      style:'solid'
+      tlRedius: '25%',
+      trRedius: '25%',
+      blRedius: '25%',
+      brRedius: '25%',
+      size: '0px',
+      color: '#7a8590',
+      style: 'solid',
     });
+  }
+
+  animationState = 'in';
+  toggleShowDiv(divName: string) {
+    if (divName === 'divA') {
+      this.animationState = this.animationState === 'out' ? 'in' : 'out';
+    }
   }
 }
