@@ -11,6 +11,7 @@ import { selectProfile } from '../shared/state/profile/selectors/app.selector';
   styleUrls: ['./live-view.component.css'],
 })
 export class LiveViewComponent implements OnInit {
+  device='mobile';
   profile:Observable<ProfileModel> = this.store.pipe(select(selectProfile));
   imgProfile = {
     'width': '140px',

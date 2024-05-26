@@ -23,6 +23,7 @@ import { LiveViewPcComponent } from './live-view/live-view-pc/live-view-pc.compo
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppearanceComponent } from './pages/appearance/appearance.component';
+import { HomeCardComponent } from './pages/home/home-card/home-card.component';
 
 
 const BootstrapModules = [
@@ -56,6 +57,7 @@ const NebularModules = [
     NavbarComponent,
     HomeComponent,
     AppearanceComponent,
+    HomeCardComponent,
   ],
   imports: [
     BrowserModule,

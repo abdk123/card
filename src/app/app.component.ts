@@ -17,7 +17,7 @@ import { SlideInOutAnimation } from './shared/animation/slideInOut';
   animations: [SlideInOutAnimation]
 })
 export class AppComponent implements OnInit {
-  device = 'pc';
+  device = 'mobile';
   profile: ProfileModel = new ProfileModel();
   title = 'ocucard-app';
   modalRef?: BsModalRef;

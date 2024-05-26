@@ -1,1 +1,2 @@
-<app-live-view-pc></app-live-view-pc>
+<app-live-view-pc *ngIf="device == 'pc'"></app-live-view-pc>
+<app-live-view-mobile *ngIf="device == 'mobile'"></app-live-view-mobile>

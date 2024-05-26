@@ -1,74 +1,16 @@
-<!-- <nav class="navbar navbar-light bg-light px-3 shadow-sm">
-  <div class="d-flex flex-nowrap w-100">
-    <div class="w-50"></div>
-    <div class="w-50">
-      <div class="d-flex align-items-end">
-        <button class="btn btn-outline-primary px-2">
-          <i class="bi bi-laptop"></i>
-        </button>
-        <button class="btn btn-outline-primary mx-2 px-2">
-          <i class="bi bi-phone"></i>
-        </button>
-        <button class="btn btn-outline-primary px-2">
-          <i class="bi bi-tablet"></i>
-        </button>
+<div class="flex min-h-[100vh]">
+  <app-navbar></app-navbar>
+  <div class="py-6 relative border-r" [ngClass]="{'p-4 w-1/3': device === 'pc', 'w-2/3' : device === 'mobile' }">
+    <router-outlet></router-outlet>
+    <div class="z-50 absolute top-0 left-0 bottom-0 w-full  bg-[#fff]">
+      <div clss="w-full">
+        
       </div>
     </div>
   </div>
-</nav>
-
-<div class="row" style="height: 90vh;">
-  <div class="col-md-3 shadow ">
-    <app-toolbar></app-toolbar>
-  </div>
-  <div class="col-md-8 mx-auto mt-3">
-    <app-live-view></app-live-view> 
-    
-  </div>
-</div> -->
-
-<!-- <nb-layout>
-  <nb-layout-column style="background-color: #ffffff;">asdas</nb-layout-column>
-  <nb-layout-column>
-    <app-live-view></app-live-view>
-  </nb-layout-column>
-  <nb-sidebar>
-    <ul>
-      <li style="width: 100%;">
-        <a nbButton ghost size="giant" style="width: 100%;">
-          <div><nb-icon icon="home-outline" style="font-size: 10rem !important;"></nb-icon></div>
-          <div style="font-size: smaller;">Home</div>
-        </a>
-      </li>
-      <li>
-        <a nbButton ghost size="giant" style="width: 100%;">
-          <div><nb-icon icon="pantone-outline"></nb-icon></div>
-          <div style="font-size: smaller;">Appearance</div>
-        </a>
-      </li>
-    </ul>
-    
-  </nb-sidebar>
-</nb-layout> -->
-
-<div class="flex min-h-[100vh]">
-  <app-navbar></app-navbar>
-  <div class="py-6 border-r" [ngClass]="{'p-4 w-1/3': device === 'pc', 'w-2/3' : device === 'mobile' }">
-    <router-outlet></router-outlet>
-  </div>
   <div class="flex justify-center mx-auto  bg-gray-100 p-5" [ngClass]="{'w-2/3': device === 'pc', 'w-1/3' : device === 'mobile' }">
-    <!-- <app-live-view></app-live-view> -->
-    <div class="wrapper">
-      <button (click)="toggleShowDiv('divA')">TOGGLE DIV</button>
-      <div [@slideInOut]="animationState" style="height: 100px; background-color: red;">
-      THIS DIV IS ANIMATED</div>
-    </div>
-    <br>
-    <div class="wrapper">
-      <button (click)="toggleShowDiv('divA')">TOGGLE DIV</button>
-      <div [@slideInOut]="animationState" style="height: 100px; background-color: red;">
-      THIS DIV IS ANIMATED</div>
-    </div>
+    <app-live-view></app-live-view>
   </div>
   
 </div>
+

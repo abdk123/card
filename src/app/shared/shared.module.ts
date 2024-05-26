@@ -11,6 +11,9 @@ import { UploadImageModalComponent } from './components/upload-image-modal/uploa
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { HttpClientModule } from '@angular/common/http';
 import { RightModalComponent } from './components/right-modal/right-modal.component';
+import { ToggleComponent } from './components/toggle/toggle.component';
+import { ButtonComponent } from './components/button/button.component';
+import { GiantButtonComponent } from './components/giant-button/giant-button.component';
 
 
 
@@ -20,7 +23,10 @@ import { RightModalComponent } from './components/right-modal/right-modal.compon
     ColorPickerComponent,
     SelectComponent,
     UploadImageModalComponent,
-    RightModalComponent
+    RightModalComponent,
+    ToggleComponent,
+    ButtonComponent,
+    GiantButtonComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +47,10 @@ import { RightModalComponent } from './components/right-modal/right-modal.compon
     SliderComponent,
     ColorPickerComponent,
     SelectComponent,
-    UploadImageModalComponent
+    UploadImageModalComponent,
+    ToggleComponent,
+    ButtonComponent,
+    GiantButtonComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
