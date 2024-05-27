@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -17,9 +17,11 @@ export class ButtonComponent {
   @Input() btnWidth: string = '';
   @Input() rounded: string = 'rounded';
 
+  @Output() click = new EventEmitter();
+
   get buttonClass() {
     const baseClass =
-      'px-4 py-2 font-semibold  transform transition-transform duration-200';
+      'px-2 py-1 md:px-4 md:py-3 font-semibold transform transition-transform duration-200 w-full';
     const typeClass = {
       primary: 'bg-blue-400 text-white hover:bg-blue-500 ',
       secondary: 'bg-gray-500 text-white hover:bg-gray-700 ',
@@ -35,5 +37,9 @@ export class ButtonComponent {
     return `${baseClass} ${typeClass[this.type]} ${disabledClass} ${
       this.rounded
     } ${this.btnWidth}`;
+  }
+
+  onClick(){
+    this.click.emit();
   }
 }

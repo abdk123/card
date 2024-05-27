@@ -1,4 +1,4 @@
-<app-button [type]="type" [rounded]="rounded" [btnWidth]="'w-full'" [disabled]="disabled">
+<app-button [type]="type" (click)="onClick()" [rounded]="rounded" [btnWidth]="'w-full'" [disabled]="disabled">
     <div class="flex flex-col items-center">
         <span class="text-4xl my-1" *ngIf="icon" [class]="icon"></span>
         <span class="text-xl mb-1"><ng-content></ng-content></span>

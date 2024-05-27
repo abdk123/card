@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-giant-button',
@@ -10,5 +10,11 @@ export class GiantButtonComponent {
   @Input() disabled = false;
   @Input() rounded:string='rounded-lg';
   @Input() icon:string;
+
+  @Output() click = new EventEmitter();
+
+  onClick(){
+    this.click.emit();
+  }
 
 }

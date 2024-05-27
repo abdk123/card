@@ -1,16 +1,12 @@
-<div class="flex min-h-[100vh]">
-  <app-navbar></app-navbar>
-  <div class="py-6 relative border-r" [ngClass]="{'p-4 w-1/3': device === 'pc', 'w-2/3' : device === 'mobile' }">
+<div class="flex flex-col lg:flex-row min-h-[100vh]">
+  <app-navbar class="lg:hidden"></app-navbar>
+  <app-sidebar class="hidden lg:block"></app-sidebar>
+
+  <div class="py-6 px-2 w-full lg:w-2/3 relative lg:border-r " >
     <router-outlet></router-outlet>
-    <div class="z-50 absolute top-0 left-0 bottom-0 w-full  bg-[#fff]">
-      <div clss="w-full">
-        
-      </div>
-    </div>
   </div>
-  <div class="flex justify-center mx-auto  bg-gray-100 p-5" [ngClass]="{'w-2/3': device === 'pc', 'w-1/3' : device === 'mobile' }">
+  <div class="flex justify-center mx-auto hidden lg:block bg-gray-100 p-5 w-1/3" >
     <app-live-view></app-live-view>
   </div>
-  
 </div>
 

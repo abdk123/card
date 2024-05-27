@@ -16,7 +16,14 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BgToolbarGeneralComponent } from './tools/bg-toolbar/bg-toolbar-general/bg-toolbar-general.component';
 import { ToolbarComponent } from './tools/toolbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbThemeModule, NbUserModule } from '@nebular/theme';
+import {
+  NbButtonModule,
+  NbCardModule,
+  NbIconModule,
+  NbLayoutModule,
+  NbThemeModule,
+  NbUserModule,
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LiveViewMobileComponent } from './live-view/live-view-mobile/live-view-mobile.component';
 import { LiveViewPcComponent } from './live-view/live-view-pc/live-view-pc.component';
@@ -24,13 +31,15 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppearanceComponent } from './pages/appearance/appearance.component';
 import { HomeCardComponent } from './pages/home/home-card/home-card.component';
-
+import { ModalService } from './shared/services/modal.service';
+import { ProfileComponent } from './pages/appearance/profile/profile.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 const BootstrapModules = [
   ModalModule.forRoot(),
   AccordionModule.forRoot(),
   TabsModule.forRoot(),
-  BsDropdownModule.forRoot()
+  BsDropdownModule.forRoot(),
 ];
 
 const NebularModules = [
@@ -40,8 +49,8 @@ const NebularModules = [
   NbIconModule,
   NbEvaIconsModule,
   NbUserModule,
-  NbCardModule
-]
+  NbCardModule,
+];
 
 @NgModule({
   declarations: [
@@ -58,6 +67,8 @@ const NebularModules = [
     HomeComponent,
     AppearanceComponent,
     HomeCardComponent,
+    ProfileComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,10 +88,10 @@ const NebularModules = [
       }
     ),
     ...BootstrapModules,
-    ...NebularModules
+    ...NebularModules,
   ],
-  providers: [],
+  providers: [ModalService],
   bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

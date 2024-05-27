@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-home-card',
@@ -6,14 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-card.component.css']
 })
 export class HomeCardComponent {
-  device:string = 'pc';
+  constructor(private modalService: ModalService) {}
   
   get cardClass(){
     const baseClass = 'flex justify-between items-center mt-4 shadow-lg rounded-xl';
     let classes = 'px-4 py-4 my-2'
-    if(this.device == 'mobile'){
-      classes = 'px-4 py-7'
-    }
     return `${baseClass} ${classes}`;
   }
+
+  openModal(modalTemplate: TemplateRef<any>) {
+    this.modalService
+      .open(modalTemplate, { size: 'lg', title: 'Title' })
+      .subscribe((action) => {
+        console.log('modalAction', action);
+      });
+  }
+  
 }

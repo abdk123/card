@@ -14,8 +14,10 @@ import { RightModalComponent } from './components/right-modal/right-modal.compon
 import { ToggleComponent } from './components/toggle/toggle.component';
 import { ButtonComponent } from './components/button/button.component';
 import { GiantButtonComponent } from './components/giant-button/giant-button.component';
-
-
+import { ModalHeaderComponent } from './components/modal/modal-header/modal-header.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { ModalBodyComponent } from './components/modal/modal-body/modal-body.component';
+import { ModalFooterComponent } from './components/modal/modal-footer/modal-footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,11 @@ import { GiantButtonComponent } from './components/giant-button/giant-button.com
     RightModalComponent,
     ToggleComponent,
     ButtonComponent,
-    GiantButtonComponent
+    GiantButtonComponent,
+    ModalHeaderComponent,
+    ModalBodyComponent,
+    ModalFooterComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +56,11 @@ import { GiantButtonComponent } from './components/giant-button/giant-button.com
     UploadImageModalComponent,
     ToggleComponent,
     ButtonComponent,
-    GiantButtonComponent
+    GiantButtonComponent,
+    ModalHeaderComponent,
+    ModalBodyComponent,
+    ModalFooterComponent,
+    ModalComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

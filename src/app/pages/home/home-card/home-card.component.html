@@ -12,12 +12,12 @@
         </div>
     </div>
     <div class="flex item-center gap-2">
-        <a class="text-slate-400 cursor-pointer text-xl">
+        <a (click)="openModal(modalTemplate)" class="text-slate-400 cursor-pointer text-xl">
             <i class="eva eva-edit-2-outline"></i>
         </a>
         <div class="border w-[1px] h-[20px]"></div>
-        <a class="text-slate-400">
-            <i class="material-icons-outlined">delete</i>
+        <a class="text-slate-400 cursor-pointer text-xl">
+            <i class="eva eva-trash-2-outline"></i>
         </a>
         <div class="border w-[1px] h-[20px]"></div>
         <input
@@ -25,3 +25,7 @@
             type="checkbox" checked role="switch" />
     </div>
 </div>
+
+<ng-template #modalTemplate>
+    
+</ng-template>

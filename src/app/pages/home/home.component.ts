@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ export class HomeComponent {
   @Input() type: 'primary' | 'secondary' | 'danger' = 'primary';
   @Input() disabled = false;
 
+  
   get buttonClass() {
     const baseClass = 'px-4 py-2 font-semibold rounded';
     const typeClass = {
@@ -21,4 +23,6 @@ export class HomeComponent {
 
     return `${baseClass} ${typeClass[this.type]} ${disabledClass}`;
   }
+
+  
 }

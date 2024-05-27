@@ -1,0 +1,8 @@
+<div id="modal" class="z-50 absolute top-0 left-[8.6rem] bottom-0 w-[60%]  bg-[#fff]">
+    <div clss="w-full">
+        <app-modal-header (close)="close()" ><h3>{{title}}</h3></app-modal-header>
+        <app-modal-body>
+            <ng-content></ng-content>
+        </app-modal-body>
+    </div>
+</div>
