@@ -34,6 +34,11 @@ import { HomeCardComponent } from './pages/home/home-card/home-card.component';
 import { ModalService } from './shared/services/modal.service';
 import { ProfileComponent } from './pages/appearance/profile/profile.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { OurServiceComponent } from './widgets/our-service/our-service.component';
+import { OurProductComponent } from './widgets/our-product/our-product.component';
+import { GalleryComponent } from './widgets/gallery/gallery.component';
+import { ThemeComponent } from './pages/appearance/theme/theme.component';
+import { BackgroundComponent } from './pages/appearance/background/background.component';
 
 const BootstrapModules = [
   ModalModule.forRoot(),
@@ -69,6 +74,11 @@ const NebularModules = [
     HomeCardComponent,
     ProfileComponent,
     SidebarComponent,
+    OurServiceComponent,
+    OurProductComponent,
+    GalleryComponent,
+    ThemeComponent,
+    BackgroundComponent,
   ],
   imports: [
     BrowserModule,

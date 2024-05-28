@@ -21,7 +21,7 @@ export class ButtonComponent {
 
   get buttonClass() {
     const baseClass =
-      'px-2 py-1 md:px-4 md:py-3 font-semibold transform transition-transform duration-200 w-full';
+      'px-2 py-1 md:px-4 md:py-3 font-semibold shadow transform transition-transform duration-200 w-full';
     const typeClass = {
       primary: 'bg-blue-400 text-white hover:bg-blue-500 ',
       secondary: 'bg-gray-500 text-white hover:bg-gray-700 ',

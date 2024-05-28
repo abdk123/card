@@ -6,11 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-
-  get cardClass(){
-    const baseClass = 'flex justify-between items-center mt-4 shadow-lg rounded-xl';
-    let classes = 'px-4 py-4 my-2'
-    return `${baseClass} ${classes}`;
-  }
+  imgProfile = {
+    'background-color': '#868d9b',
+    'background': 'url("assets/images/profile.jpg")',
+    'background-repeat': 'no-repeat',
+    'background-size': 'cover',
+    'background-position': 'center center',
+  };
   
 }
