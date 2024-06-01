@@ -1,15 +1,29 @@
 <div class="w-full mx-auto mt-4 shadow-lg rounded-2xl">
     <div class="grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-3 px-3 py-3">
-        <div class="rounded-full shadow cursor-pointer w-28 h-28 border-2 border-dashed content-center text-center">
-            <p class="text-sm text-slate-400">Personal</p>
+        <a
+        (click)="updateType('profile')"
+        data-twe-toggle="modal"
+        data-twe-target="#uploadModal"
+        data-twe-ripple-init
+        data-twe-ripple-color="light"
+        [style]="profileStyle"
+        class="rounded-full shadow cursor-pointer w-28 h-28 border-2 border-dashed content-center text-center">
+            <p  class="text-sm text-slate-400">Personal</p>
             <span
                 class="text-4xl hover:text-5xl hover:opacity-90 transition transition-all daily-800 text-slate-400 material-icons-outlined">add_photo_alternate</span>
-        </div>
-        <div class="rounded-lg shadow cursor-pointer w-full h-full border-2 border-dashed content-center text-center">
+        </a>
+        <a 
+        (click)="updateType('bg')"
+        data-twe-toggle="modal"
+        data-twe-target="#uploadModal"
+        data-twe-ripple-init
+        data-twe-ripple-color="light"
+        [style]="backgroundStyle"
+        class="rounded-lg shadow cursor-pointer w-full h-full border-2 border-dashed content-center text-center">
             <p class="text-sm text-slate-400">Header Image</p>
-            <span
+            <span 
                 class="text-4xl hover:text-5xl hover:opacity-90 transition transition-all daily-800 text-slate-400 material-icons-outlined">add_photo_alternate</span>
-        </div>
+        </a>
     </div>
 
     <!--  -->
@@ -27,8 +41,6 @@
             <label for="bio" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-blue-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Bio</label>
         </div>
     </div>
-    
-    
-    
 </div>
 
+<app-upload-image-modal [type]="type" (onUpload)="upload($event)"></app-upload-image-modal>

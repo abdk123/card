@@ -34,11 +34,13 @@ import { HomeCardComponent } from './pages/home/home-card/home-card.component';
 import { ModalService } from './shared/services/modal.service';
 import { ProfileComponent } from './pages/appearance/profile/profile.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { OurServiceComponent } from './widgets/our-service/our-service.component';
-import { OurProductComponent } from './widgets/our-product/our-product.component';
-import { GalleryComponent } from './widgets/gallery/gallery.component';
+import { OurServiceComponent } from './pages/widgets/our-service/our-service.component';
+import { OurProductComponent } from './pages/widgets/our-product/our-product.component';
+import { GalleryComponent } from './pages/widgets/gallery/gallery.component';
 import { ThemeComponent } from './pages/appearance/theme/theme.component';
 import { BackgroundComponent } from './pages/appearance/background/background.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ProfileHelperService } from './shared/services/profile-helper.service';
 
 const BootstrapModules = [
   ModalModule.forRoot(),
@@ -85,7 +87,7 @@ const NebularModules = [
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-
+    SlickCarouselModule,
     StoreModule.forRoot(
       { profile: profileReducer },
       {
@@ -100,7 +102,7 @@ const NebularModules = [
     ...BootstrapModules,
     ...NebularModules,
   ],
-  providers: [ModalService],
+  providers: [ModalService,ProfileHelperService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

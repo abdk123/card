@@ -1,43 +1,81 @@
-<form>
-  <!-- Header -->
-  <div class="modal-header">
-    <h4 class="modal-title">Upload Image</h4>
-  </div>
-  <!-- /Header -->
-  <!-- Body -->
-  <div class="modal-body">
-    <input type="file" class="form-control" id="upload-image" name="uploadImage" (change)="fileChangeEvent($event)" />
-
-    <!-- <button (click)="changeZoom(-0.01)">zoom out</button>
-        <button (click)="changeZoom(+0.01)">zoom in</button>
-        <span>{{ scale * 100 | number }}</span>
-        <br />
-        <button (click)="updateRotation(-1)">rotate left</button>
-        <button (click)="updateRotation(+1)">rotate right</button>
-        <span>{{ rotation }}</span>
-        <br />
-        <button (click)="resetImage()">Reset</button> -->
-      <div class="d-flex justify-content-center" style="display: block; height: 300px;">
-        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="false" [transform]="transform"
-        [style.display]="showCropper ? null : 'none'" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
-        (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"
-        ></image-cropper>
-  
+<div
+  data-twe-modal-init
+  class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+  id="uploadModal"
+  tabindex="-1"
+  aria-labelledby="uploadModalLabel"
+  aria-hidden="true">
+  <div
+    data-twe-modal-dialog-ref
+    class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+    <div
+      class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark">
+      <div
+        class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 p-4 dark:border-white/10">
+        <h5
+          class="text-xl font-medium leading-normal text-surface dark:text-white"
+          id="uploadModalLabel">
+          Upload Image
+        </h5>
+        <button
+          type="button"
+          class="box-content rounded-none border-none text-neutral-500 hover:text-neutral-800 hover:no-underline focus:text-neutral-800 focus:opacity-100 focus:shadow-none focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
+          data-twe-modal-dismiss
+          aria-label="Close">
+          <span class="[&>svg]:h-6 [&>svg]:w-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </span>
+        </button>
       </div>
-    
-    <img [src]="croppedImage" style="display: none;" />
-  </div>
 
-  <!-- /Body -->
-  <!-- Footer -->
+      <!-- Modal body -->
+      <div class="relative flex-auto p-4" data-twe-modal-body-ref>
+        <input id="upload-image" name="uploadImage" (change)="fileChangeEvent($event)"
+        class="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-secondary-500 bg-transparent bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-surface transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:me-3 file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-e file:border-solid file:border-inherit file:bg-transparent file:px-3  file:py-[0.32rem] file:text-surface focus:border-primary focus:text-gray-700 focus:shadow-inset focus:outline-none dark:border-white/70 dark:text-white  file:dark:text-white"
+        type="file"
+        id="formFile" />
+        <!-- <button (click)="changeZoom(-0.01)">zoom out</button>
+            <button (click)="changeZoom(+0.01)">zoom in</button>
+            <span>{{ scale * 100 | number }}</span>
+            <br />
+            <button (click)="updateRotation(-1)">rotate left</button>
+            <button (click)="updateRotation(+1)">rotate right</button>
+            <span>{{ rotation }}</span>
+            <br />
+            <button (click)="resetImage()">Reset</button> -->
+          <div class="d-flex justify-content-center">
+            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="false" [transform]="transform"
+            [style.display]="showCropper ? null : 'none'" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"
+            ></image-cropper>
+      
+          </div>
+        <img [src]="croppedImage" style="display: none;" />
+      </div>
 
-  <div class="modal-footer justify-content-between ">
-    <button type="button" class="btn btn-outline-danger" (click)="bsModalRef.hide()">
-      <i class="bi bi-close"> </i> Cancel
-    </button>
-    <button type="button" class="btn btn-outline-primary" (click)="save()">
-      <i class=""></i> Save
-    </button>
+      <!-- Modal footer -->
+      <div
+        class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 p-4 dark:border-white/10">
+        <button
+          type="button"
+          (click)="save()"
+          class="ms-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+          data-twe-ripple-init
+          data-twe-modal-dismiss
+          data-twe-ripple-color="light">
+          Save
+        </button>
+      </div>
+    </div>
   </div>
-  <!-- /Footer -->
-</form>
+</div>

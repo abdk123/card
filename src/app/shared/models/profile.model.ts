@@ -1,13 +1,10 @@
-import { BackgroundModel, IBackground } from "./background.model";
-import { ProfileImageModel } from "./profile.Image.model";
+import { WidgetModel } from "./widget.model";
 
 export interface IProfile{
-    primaryColor:string;
-    secondryColor:string;
-    primaryTextColor:string;
-    secondryTextColor:string;
-    forntType:string;
-    forntSize:string;
+    id?:number;
+    userId:number;
+    title:string;
+    bio:string;
 }
 
 export class ProfileModel implements IProfile {
@@ -19,13 +16,9 @@ export class ProfileModel implements IProfile {
             }
         }
     }
-    primaryColor: string;
-    secondryColor: string;
-    primaryTextColor: string;
-    secondryTextColor: string;
-    forntType: string;
-    forntSize: string;
-    background:BackgroundModel;
-    profileImage: ProfileImageModel;
-    
+    id?: number;
+    userId:number;
+    title: string;
+    bio: string;
+    widgets:WidgetModel[]
 }

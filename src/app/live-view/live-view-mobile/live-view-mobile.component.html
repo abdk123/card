@@ -1,4 +1,4 @@
-<!-- <div class="d-flex justify-content-center mx-auto">
+<!--<div class="d-flex justify-content-center mx-auto">
     <div class="marvel-device iphone-x">
         <div class="notch">
             <div class="camera"></div>
@@ -46,21 +46,10 @@
     <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
     <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
     <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-        <div id="pro" class="w-full" [style]="bgStyle">
-            <div id="pro-bg" class="pro-bg mx-auto" [ngStyle]="bgImageStyle"></div>
-            <div class="shadow-lg" [ngStyle]="imgProfile"></div>
-
-        </div>
-        <div id="profile-name" class="d-flex justify-content-center w-full">
-            <div class="w-50 text-center py-2 px-5">
-                <h1 class="text-lg">Lorem ipsum dolor</h1>
-                <h3 class="text-secondry">Lorem ipsum dolor</h3>
-                <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum facilis nihil.
-                </p>
-                <h1 class="text-3xl font-bold bg-red">
-                    Hello world!
-                </h1>
-            </div>
+        <!--  -->
+        <!-- Header -->
+        <div [innerHTML]="initialHeader()" [class]="header.getClasses()" [style]="header.getStyles()">
+            
         </div>
     </div>
-</div>
+</div> 

@@ -9,6 +9,8 @@ import { update } from './shared/state/profile/action/app.action';
 import { BorderModel } from './shared/models/common/border.model';
 import { ProfileImageModel } from './shared/models/profile.Image.model';
 import { SlideInOutAnimation } from './shared/animation/slideInOut';
+import { Carousel, initTWE } from 'tw-elements';
+import { ProfileHelperService } from './shared/services/profile-helper.service';
 
 @Component({
   selector: 'app-root',
@@ -29,10 +31,13 @@ export class AppComponent implements OnInit {
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
   constructor(
     private modalService: BsModalService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private profileHelperService: ProfileHelperService 
   ) {}
   ngOnInit(): void {
-    this.profile = this.initialProfile();
+    initTWE({ Carousel  });
+    //this.profile = this.initialProfile();
+    this.profile = this.profileHelperService.initial(0);
     this.store.dispatch(
       update({
         profile: Object.assign({}, this.profile, {
@@ -46,86 +51,86 @@ export class AppComponent implements OnInit {
     this.modalRef = this.modalService.show(this.template, this.config);
   }
 
-  //=========
-  initialProfile(): ProfileModel {
-    //Get from database by id
-    //=======================
-    var profile = new ProfileModel();
-    // initial profile
-    profile.background = this.initialBackground();
-    profile.profileImage = this.initialAvatar();
-    return profile;
-  }
+  // //=========
+  // initialProfile(): ProfileModel {
+  //   //Get from database by id
+  //   //=======================
+  //   var profile = new ProfileModel();
+  //   // initial profile
+  //   profile.background = this.initialBackground();
+  //   profile.profileImage = this.initialAvatar();
+  //   return profile;
+  // }
 
-  initialBackground(): BackgroundModel {
-    let background = new BackgroundModel();
-    background.spacing = '0rem';
-    background.height = '20rem';
-    background.boxShadow = this.initialBackgroundShadow();
-    background.border = this.initialBackgroundBorder();
+  // initialBackground(): BackgroundModel {
+  //   let background = new BackgroundModel();
+  //   background.spacing = '0rem';
+  //   background.height = '20rem';
+  //   background.boxShadow = this.initialBackgroundShadow();
+  //   background.border = this.initialBackgroundBorder();
 
-    return background;
-  }
+  //   return background;
+  // }
 
-  initialBackgroundShadow(): ShadowModel {
-    return new ShadowModel({
-      color: '#7a8590',
-      horizontalOffset: '0px',
-      verticalOffset: '0px',
-      blurRadius: '0px',
-      spreadRadius: '0px',
-    });
-  }
+  // initialBackgroundShadow(): ShadowModel {
+  //   return new ShadowModel({
+  //     color: '#7a8590',
+  //     horizontalOffset: '0px',
+  //     verticalOffset: '0px',
+  //     blurRadius: '0px',
+  //     spreadRadius: '0px',
+  //   });
+  // }
 
-  initialBackgroundBorder(): BorderModel {
-    return new BorderModel({
-      tlRedius: '0px',
-      trRedius: '0px',
-      blRedius: '0px',
-      brRedius: '0px',
-      size: '0px',
-      color: '#7a8590',
-      style: 'solid',
-    });
-  }
+  // initialBackgroundBorder(): BorderModel {
+  //   return new BorderModel({
+  //     tlRedius: '0px',
+  //     trRedius: '0px',
+  //     blRedius: '0px',
+  //     brRedius: '0px',
+  //     size: '0px',
+  //     color: '#7a8590',
+  //     style: 'solid',
+  //   });
+  // }
 
-  // ===
-  initialAvatar(): ProfileImageModel {
-    let background = new ProfileImageModel();
-    background.size = '140px';
-    background.top = '-75px';
-    background.boxShadow = this.initialBackgroundShadow();
-    background.border = this.initialBackgroundBorder();
+  // // ===
+  // initialAvatar(): ProfileImageModel {
+  //   let background = new ProfileImageModel();
+  //   background.size = '140px';
+  //   background.top = '-75px';
+  //   background.boxShadow = this.initialBackgroundShadow();
+  //   background.border = this.initialBackgroundBorder();
 
-    return background;
-  }
+  //   return background;
+  // }
 
-  initialAvatarShadow(): ShadowModel {
-    return new ShadowModel({
-      color: '#7a8590',
-      horizontalOffset: '0px',
-      verticalOffset: '0px',
-      blurRadius: '0px',
-      spreadRadius: '0px',
-    });
-  }
+  // initialAvatarShadow(): ShadowModel {
+  //   return new ShadowModel({
+  //     color: '#7a8590',
+  //     horizontalOffset: '0px',
+  //     verticalOffset: '0px',
+  //     blurRadius: '0px',
+  //     spreadRadius: '0px',
+  //   });
+  // }
 
-  initialAvatarBorder(): BorderModel {
-    return new BorderModel({
-      tlRedius: '25%',
-      trRedius: '25%',
-      blRedius: '25%',
-      brRedius: '25%',
-      size: '0px',
-      color: '#7a8590',
-      style: 'solid',
-    });
-  }
+  // initialAvatarBorder(): BorderModel {
+  //   return new BorderModel({
+  //     tlRedius: '25%',
+  //     trRedius: '25%',
+  //     blRedius: '25%',
+  //     brRedius: '25%',
+  //     size: '0px',
+  //     color: '#7a8590',
+  //     style: 'solid',
+  //   });
+  // }
 
-  animationState = 'in';
-  toggleShowDiv(divName: string) {
-    if (divName === 'divA') {
-      this.animationState = this.animationState === 'out' ? 'in' : 'out';
-    }
-  }
+  // animationState = 'in';
+  // toggleShowDiv(divName: string) {
+  //   if (divName === 'divA') {
+  //     this.animationState = this.animationState === 'out' ? 'in' : 'out';
+  //   }
+  // }
 }

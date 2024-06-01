@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ProfileModel } from 'src/app/shared/models/profile.model';
 import { AppState } from 'src/app/shared/state/profile/app.state';
 import { selectProfile } from 'src/app/shared/state/profile/selectors/app.selector';
+import {
+  Carousel,
+  initTWE,
+} from "tw-elements";
+initTWE({ Carousel });
 
 @Component({
   selector: 'app-live-view-pc',
   templateUrl: './live-view-pc.component.html',
   styleUrls: ['./live-view-pc.component.css']
 })
-export class LiveViewPcComponent {
+export class LiveViewPcComponent implements OnInit {
   profile:Observable<ProfileModel> = this.store.pipe(select(selectProfile));
   imgProfile = {
     'width': '140px',
@@ -35,15 +40,16 @@ export class LiveViewPcComponent {
 
   }
   ngOnInit(): void {
-    this.initialProfileHeader();
+    initTWE({ Carousel });
+    //this.initialProfileHeader();
   }
 
   initialProfileHeader() {
     this.profile.subscribe((result)=>{
-      this.bgStyle = {
-        'padding':result.background.spacing
-      }
-      this.bgImageStyle= result.background.toJson();
+      // this.bgStyle = {
+      //   'padding':result.background.spacing
+      // }
+      // this.bgImageStyle= result.background.toJson();
     })
   }
 }

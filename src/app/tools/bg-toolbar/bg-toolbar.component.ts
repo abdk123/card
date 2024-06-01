@@ -35,36 +35,36 @@ export class BgToolbarComponent implements OnInit {
 
   onChangeBasics(args: BackgroundModel){
     console.log(args);
-    this.profile.background = args; 
-    this.store.dispatch(
-      update({
-        profile: Object.assign({}, this.profile, {
-          details: { closed: true },
-        }),
-      })
-    );
+    // this.profile.background = args; 
+    // this.store.dispatch(
+    //   update({
+    //     profile: Object.assign({}, this.profile, {
+    //       details: { closed: true },
+    //     }),
+    //   })
+    // );
   }
 
   onChangeShadow(args: ShadowModel) {
-    this.profile.background.boxShadow = args;
-    this.store.dispatch(
-      update({
-        profile: Object.assign({}, this.profile, {
-          details: { closed: true },
-        }),
-      })
-    );
+    // this.profile.background.boxShadow = args;
+    // this.store.dispatch(
+    //   update({
+    //     profile: Object.assign({}, this.profile, {
+    //       details: { closed: true },
+    //     }),
+    //   })
+    // );
   }
 
   onChangeBorder(args: BorderModel) {
-    this.profile.background.border = args;
-    this.store.dispatch(
-      update({
-        profile: Object.assign({}, this.profile, {
-          details: { closed: true },
-        }),
-      })
-    );
+    // this.profile.background.border = args;
+    // this.store.dispatch(
+    //   update({
+    //     profile: Object.assign({}, this.profile, {
+    //       details: { closed: true },
+    //     }),
+    //   })
+    // );
   }
 
   

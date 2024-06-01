@@ -4,6 +4,11 @@ import { AppState } from '../shared/state/profile/app.state';
 import { Observable } from 'rxjs';
 import { ProfileModel } from '../shared/models/profile.model';
 import { selectProfile } from '../shared/state/profile/selectors/app.selector';
+import {
+  Collapse,
+  Ripple,
+  initTWE,
+} from "tw-elements";
 
 @Component({
   selector: 'app-live-view',
@@ -26,25 +31,23 @@ export class LiveViewComponent implements OnInit {
     'margin': '0 calc(20% - (140px /2))',
     'margin-top': '-75px',
   };
-  select(){
-    alert();
-  }
 
   bgStyle = {};
   bgImageStyle:{};
   constructor(private store:Store<AppState>){
-
   }
+
   ngOnInit(): void {
+    initTWE({ Collapse, Ripple });
     this.initialProfileHeader();
   }
 
   initialProfileHeader() {
     this.profile.subscribe((result)=>{
-      this.bgStyle = {
-        'padding':result.background.spacing
-      }
-      this.bgImageStyle= result.background.toJson();
+      // this.bgStyle = {
+      //   'padding':result.background.spacing
+      // }
+      // this.bgImageStyle= result.background.toJson();
     })
   }
 }

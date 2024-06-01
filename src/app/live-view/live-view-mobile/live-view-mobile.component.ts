@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ProfileModel } from 'src/app/shared/models/profile.model';
+import { WidgetModel } from 'src/app/shared/models/widget.model';
 import { AppState } from 'src/app/shared/state/profile/app.state';
 import { selectProfile } from 'src/app/shared/state/profile/selectors/app.selector';
 
@@ -12,6 +14,13 @@ import { selectProfile } from 'src/app/shared/state/profile/selectors/app.select
 })
 export class LiveViewMobileComponent implements OnInit  {
   profile:Observable<ProfileModel> = this.store.pipe(select(selectProfile));
+
+  constructor(
+    private store:Store<AppState>,
+    private sanitizer: DomSanitizer
+  ){
+
+  }
   imgProfile = {
     'width': '140px',
     'height': '140px',
@@ -31,19 +40,28 @@ export class LiveViewMobileComponent implements OnInit  {
 
   bgStyle = {};
   bgImageStyle:{};
-  constructor(private store:Store<AppState>){
 
-  }
   ngOnInit(): void {
-    this.initialProfileHeader();
+    this.initialProfile();
   }
 
-  initialProfileHeader() {
+  header:WidgetModel = new WidgetModel();
+  initialProfile() {
     this.profile.subscribe((result)=>{
-      this.bgStyle = {
-        'padding':result.background.spacing
+      
+      this.initialHeader()
+      const headerWidget = result.widgets.find(x=>x.index == 0);
+      if(headerWidget){
+        this.header = headerWidget;
       }
-      this.bgImageStyle= result.background.toJson();
+      // this.bgStyle = {
+      //   'padding':result.background.spacing
+      // }
+      // this.bgImageStyle= result.background.toJson();
     })
+  }
+
+  initialHeader(){
+    return this.sanitizer.bypassSecurityTrustHtml(this.header.getTags());
   }
 }
