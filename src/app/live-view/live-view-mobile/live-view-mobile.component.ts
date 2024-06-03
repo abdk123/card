@@ -34,9 +34,6 @@ export class LiveViewMobileComponent implements OnInit  {
     'margin': '0 calc(20% - (140px /2))',
     'margin-top': '-75px',
   };
-  select(){
-    alert();
-  }
 
   bgStyle = {};
   bgImageStyle:{};
@@ -46,22 +43,28 @@ export class LiveViewMobileComponent implements OnInit  {
   }
 
   header:WidgetModel = new WidgetModel();
+  personalInfo:WidgetModel = new WidgetModel();
   initialProfile() {
     this.profile.subscribe((result)=>{
       
       this.initialHeader()
+      this.initialPersonalInfo();
       const headerWidget = result.widgets.find(x=>x.index == 0);
       if(headerWidget){
         this.header = headerWidget;
       }
-      // this.bgStyle = {
-      //   'padding':result.background.spacing
-      // }
-      // this.bgImageStyle= result.background.toJson();
+      const personalInfoWidget = result.widgets.find(x => x.type == 'personalInfo');
+      if(personalInfoWidget){
+        this.personalInfo = personalInfoWidget;
+      }
     })
   }
 
   initialHeader(){
     return this.sanitizer.bypassSecurityTrustHtml(this.header.getTags());
+  }
+
+  initialPersonalInfo(){
+    return this.sanitizer.bypassSecurityTrustHtml(this.personalInfo.getTags());
   }
 }

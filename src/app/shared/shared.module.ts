@@ -20,6 +20,8 @@ import { ModalBodyComponent } from './components/modal/modal-body/modal-body.com
 import { ModalFooterComponent } from './components/modal/modal-footer/modal-footer.component';
 import { GradientComponent } from './components/gradient/gradient.component';
 import { SlickComponent } from './components/slick/slick.component';
+import { ShadowComponent } from './components/shadow/shadow.component';
+import { BackgroundComponent } from './components/background/background.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { SlickComponent } from './components/slick/slick.component';
     ModalFooterComponent,
     ModalComponent,
     GradientComponent,
-    SlickComponent
+    SlickComponent,
+    ShadowComponent,
+    BackgroundComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +69,10 @@ import { SlickComponent } from './components/slick/slick.component';
     ModalBodyComponent,
     ModalFooterComponent,
     ModalComponent,
-    GradientComponent
+    GradientComponent,
+    SlickComponent,
+    ShadowComponent,
+    BackgroundComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

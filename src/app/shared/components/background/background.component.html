@@ -1,0 +1,18 @@
+<div class="p-1">
+    <h3 class="text-sm text-slate-500 font-semibold mb-4 mt-2">You can upload an image or choose a background color!</h3>
+    <div class="flex flex-wrap items-center justify-between gap-4">
+        <div class="flex  justify-center gap-6 px-3">
+            <app-color-picker (onChange)="onChangeColor($event)" [title]="'Color'"></app-color-picker>
+            <div class="flex flex-col justify-center">
+                <button type="button" class="flex justify-center items-center rounded border-2 border-slate-500 text-slate-500 hover:border-slate-600 hover:bg-slate-400 hover:bg-opacity-10 hover:text-slate-600 focus:border-slate-700 focus:text-slate-700 active:border-slate-800 active:text-slate-800 dark:border-slate-300 dark:text-slate-300 dark:hover:hover:bg-slate-300 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0">
+                    <span class="material-icons-outlined">upload</span><span class="m-2">Upload Background Image</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="p-2 border-b-2"></div>
+    <h3 class="text-sm text-slate-500 font-semibold mb-4 mt-2">You can use gradient color for the background!</h3>
+    <div class="w-full flex flex-wrap justify-between">
+        <app-gradient (onChange)="onChangeGradient($event)"></app-gradient>
+    </div>
+</div>

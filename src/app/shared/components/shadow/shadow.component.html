@@ -1,0 +1,35 @@
+<div class="p-1">
+    <!-- Select Shadow -->
+    <h3 class="text-base font-semibold my-2">Select Shadow:</h3>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+        <a (click)="onSelect('')" class="w-20 h-20 border-2 text-slate-400 rounded-lg  content-center text-center">
+            <span class="text-lg lg:text-4xl cursor-pointer  material-icons-outlined">block</span>
+        </a>
+        <a *ngFor="let shadow of shadows" (click)="onSelect(shadow)" [class]="shadow" class="w-20 h-20 border-2 text-slate-400 cursor-pointer rounded-lg transition-all delay-600 content-center text-center focus:text-primary-700 focus:bg-slate-400 hover:text-primary-700 hover:border-primary-700">
+            <span *ngIf="selectedShadow == shadow" class="text-lg lg:text-4xl material-icons-outlined">check</span>
+        </a>
+    </div>
+    <div class="p-2 border-b-2"></div>
+    <h3 class="text-base font-semibold my-2">Build Shadow:</h3>
+    <div class="w-full flex flex-wrap justify-between">
+        <div class="w-1/2 mb-2 ">
+            <app-slider [min]="-30" [default]="0" [max]="30" (onChange)="onChangeHorizontal($event)"
+                [title]="'Horizontal Offset:'"></app-slider>
+        </div>
+        <div class="w-1/2 mb-2 ">
+            <app-slider [min]="-30" [default]="0" [max]="30" (onChange)="onChangeVertical($event)"
+                [title]="'Vertical Offset:'"></app-slider>
+        </div>
+        <div class="w-1/2 mb-2 ">
+            <app-slider [min]="0" [default]="0" [max]="50" (onChange)="onChangeBlur($event)"
+                [title]="'Blur Radius:'"></app-slider>
+        </div>
+        <!-- <div class="w-1/2 px-4">
+        <app-slider [min]="0" [default]="0" [max]="50" (onChange)="onChangeSpread($event)" [title]="'Spread Radius:'"></app-slider>              
+      </div> -->
+        <div class="w-1/2 mb-1 ">
+            <app-color-picker (onChange)="onChangeColor($event)" [title]="'Shadow Color'"></app-color-picker>
+        </div>
+    </div>
+    
+</div>

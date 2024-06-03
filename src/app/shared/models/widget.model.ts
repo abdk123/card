@@ -25,10 +25,11 @@ export class WidgetModel implements IWidgetModel {
   sections: SectionModel[] = [];
   styles: StyleModel[] = [];
 
+  
   updateStyle(style:StyleModel){
-    const itemIndex = this.styles.findIndex((x) => x.type == style.type && x.name == style.name);
+    const itemIndex = this.styles.findIndex((x) => x.name == style.name);
     if(itemIndex > -1){
-      this.styles = this.styles.slice(itemIndex);
+      this.styles.splice(itemIndex,1);
     }
     this.styles.push(style);
   }

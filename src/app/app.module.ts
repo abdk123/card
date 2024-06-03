@@ -38,9 +38,11 @@ import { OurServiceComponent } from './pages/widgets/our-service/our-service.com
 import { OurProductComponent } from './pages/widgets/our-product/our-product.component';
 import { GalleryComponent } from './pages/widgets/gallery/gallery.component';
 import { ThemeComponent } from './pages/appearance/theme/theme.component';
-import { BackgroundComponent } from './pages/appearance/background/background.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ProfileHelperService } from './shared/services/profile-helper.service';
+import { FormsModule } from '@angular/forms';
+import { PersonalInfoComponent } from './pages/appearance/personal-info/personal-info.component';
+import { SocialMediaButtonListComponent } from './pages/home/social-media-button-list/social-media-button-list.component';
 
 const BootstrapModules = [
   ModalModule.forRoot(),
@@ -80,11 +82,13 @@ const NebularModules = [
     OurProductComponent,
     GalleryComponent,
     ThemeComponent,
-    BackgroundComponent,
+    PersonalInfoComponent,
+    SocialMediaButtonListComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
     SharedModule,
     SlickCarouselModule,

@@ -1,8 +1,8 @@
-<div class="row">
-    <div class="col-md-12 d-flex flex-nowrap justify-content-between px-2">
-        <div><p class="fst-normal">{{title}}</p></div>
+<div class="flex flex-col justify-center">
+    <div class="col-md-12 flex flex-nowrap justify-between px-2">
+        <div><p class="text-sm font-medium text-gray-900 dark:text-white my-2">{{title}}</p></div>
     </div>
-    <div class="col-md-12 d-flex flex-nowrap justify-content-between px-2">
+    <div class="col-md-12 flex flex-nowrap justify-between px-2">
         <div class="px-1 w-100">
             <input type="color" #colorRef (change)="changeColor(colorRef.value)" class="form-controle" [value]="value" >
         </div>
@@ -11,3 +11,5 @@
         </div>
     </div>
 </div>
+
+

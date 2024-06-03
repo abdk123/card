@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+
 import { UploadModel } from 'src/app/shared/models/common/upload.model';
 import { Store, select } from '@ngrx/store';
 import { ProfileModel } from 'src/app/shared/models/profile.model';
@@ -27,14 +27,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.profile$.subscribe((result) => {
       this.profile = result;
-      //Header
-      const header = this.profile.widgets.find((x) => x.name == 'header');
-      if(header){
-        this.initialPersonalImage(header);
-        this.initialBgImage(header);
-        this.initialPersonalInfo(header);
-      }
-      
     });
   }
 
@@ -61,7 +53,7 @@ export class ProfileComponent implements OnInit {
         value: `url(${url})`,
       });
 
-    
+    this.initialBgImage();
   }
 
   savePersonalImage(url: string) {
@@ -74,21 +66,22 @@ export class ProfileComponent implements OnInit {
         value: `url(${url})`,
       });
 
-    
+    this.initialPersonalImage();
   }
 
-  initialBgImage(header:WidgetModel) {
-    const bgSection = header.sections.find((x) => x.name == 'background');
+  initialBgImage() {
+    const header = this.profile.widgets.find((x) => x.name == 'header');
+    if (header) {
+      const bgSection = header.sections.find((x) => x.name == 'background');
       this.backgroundStyle = bgSection ? bgSection.getStyles() : '';
+    }
   }
 
-  initialPersonalImage(header:WidgetModel) {
-    const bgSection = header.sections.find((x) => x.name == 'personalImage');
-    this.profileStyle = bgSection ? bgSection.getStyles() : '';
-  }
-
-  initialPersonalInfo(header:WidgetModel){
-    const bgSection = header.sections.find((x) => x.name == 'personalInfo');
+  initialPersonalImage() {
+    const header = this.profile.widgets.find((x) => x.name == 'header');
+    if (header) {
+      const bgSection = header.sections.find((x) => x.name == 'personalImage');
       this.profileStyle = bgSection ? bgSection.getStyles() : '';
+    }
   }
 }

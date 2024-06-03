@@ -1,17 +1,24 @@
-import { Component, Input, TemplateRef } from '@angular/core';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import {
+  Collapse,
+  initTWE,
+} from "tw-elements";
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   device = 'pc';
   @Input() type: 'primary' | 'secondary' | 'danger' = 'primary';
   @Input() disabled = false;
 
-  
+  ngOnInit(): void {
+    initTWE({ Collapse });
+  }
+
   get buttonClass() {
     const baseClass = 'px-4 py-2 font-semibold rounded';
     const typeClass = {

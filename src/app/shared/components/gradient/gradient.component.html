@@ -1,26 +1,25 @@
 <div class="flex flex-col lg:flex-row lg:justify-between px-1">
     <div class="flex justify-center lg:justify-start gap-2 px-3 py-3">
-        <div class="w-20 h-20 shadow border-2 border-dashed rounded-lg  content-center text-center">
+        <a (click)="reset()" class="cursor-pointer w-20 h-20 shadow border-2 border-dashed rounded-lg  content-center text-center">
             <span class="text-4xl hover:text-5xl text-slate-400 material-icons-outlined">block</span>
-            <!-- <p class="text-sm text-slate-400">None</p> -->
-        </div>
-        <div class="bg-gradient-to-tr from-[#66f542] to-[#4260f5] w-20 h-20 shadow border-2 rounded-lg">
+        </a>
+        <div  class="w-20 h-20 shadow border-2 rounded-lg" [ngStyle]="gradient">
         </div>
     </div>
     <div class="flex flex-col justify-center px-5 py-3 lg:px-1 lg:py-1">
         <label for="direction"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direction
             </label>
-            <select id="direction"
+            <select id="direction" (change)="onChangeDirection($event)"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option>To Top</option>
-                <option>To Top Right</option>
-                <option>To Right</option>
-                <option>To Bottom Right</option>
-                <option>To Bottom</option>
-                <option>To Bottom Left</option>
-                <option>To Left</option>
-                <option>To Left Top</option>
+                <option value="to top">To Top</option>
+                <option value="to top right">To Top Right</option>
+                <option value="to right">To Right</option>
+                <option value="to bottom right">To Bottom Right</option>
+                <option value="to bottom">To Bottom</option>
+                <option value="to bottom left">To Bottom Left</option>
+                <option value="to left">To Left</option>
+                <option value="to left top">To Left Top</option>
             </select>
     </div>
     <div class="flex  justify-center gap-6 px-3">
@@ -28,13 +27,13 @@
             <label for="fromColor"
                 class="block mb-2 text-sm font-medium text-gray-900">From Color
             </label>
-            <input id="fromColor" type="color" value="#66f542" />
+            <input id="fromColor" #fromColorInputRef (change)="changeFromColor(fromColorInputRef.value)" [(ngModel)]="model.from" type="color" value="#66f542" />
         </div>
         <div class="flex flex-col justify-center">
-            <label for="fromColor"
+            <label for="fromColor"ks
                 class="block mb-2 text-sm font-medium text-gray-900">To Color
             </label>
-            <input id="fromColor" type="color" value="#4260f5" />
+            <input id="fromColor" type="color" #toColorInputRef (change)="changeToColor(toColorInputRef.value)" [(ngModel)]="model.to" value="#4260f5" />
         </div>
     </div>
 </div>

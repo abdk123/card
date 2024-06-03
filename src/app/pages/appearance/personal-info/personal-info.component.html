@@ -1,0 +1,78 @@
+<div class="w-full mx-auto mt-6 shadow-xl rounded-xl">
+    <div class=" px-3 py-3">
+        <div class="relative my-2">
+            <input type="text" id="fullName" name="fullName" (keypress)="onChangeFullName($event)"
+                (keyup)="onChangeFullName($event)" [(ngModel)]="fullName"
+                class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg shadow border-2 border-slate-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-400 peer"
+                placeholder=" " />
+            <label for="fullName"
+                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-blue-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Full
+                Name</label>
+        </div>
+        <div class="relative my-2">
+            <input type="text" id="jobTitle" (keypress)="onChangeJobTitle($event)" (keyup)="onChangeJobTitle($event)"
+                [(ngModel)]="jobTitle"
+                class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg shadow border-2 border-slate-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-400 peer"
+                placeholder=" " />
+            <label for="jobTitle"
+                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-blue-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Job
+                Title</label>
+        </div>
+        <div class="relative my-1">
+            <textarea type="text" id="bio" (keypress)="onChangeBio($event)" (keyup)="onChangeBio($event)"
+                [(ngModel)]="bio"
+                class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg shadow border-2 border-slate-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-400 peer"
+                placeholder=" "></textarea>
+            <label for="bio"
+                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-blue-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Bio</label>
+        </div>
+    </div>
+    
+    <!---->
+    <ul class="flex justify-center gap-3 px-3 py-2" role="tablist" data-twe-nav-ref>
+        <li class="w-1/2" role="presentation">
+            <a href="#tabs-home"
+            class=" bg-neutral-100 flex flex-col items-center gap-1 rounded-lg shadow-lg border-2 border-primary-100 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-400 focus:border-2 focus:bg-secondary-50/50 focus:shadow-xl focus:outline-none focus:ring-0 active:border-primary-accent-200 motion-reduce:transition-none dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
+                data-twe-toggle="pill" data-twe-target="#tabs-home" data-twe-nav-active role="tab"
+                aria-controls="tabs-home" aria-selected="true">
+                <span class="text-5xl  material-icons-outlined">format_color_fill</span>
+                <span>Background</span>
+            </a>
+        </li>
+        <li class="w-1/2" role="presentation">
+            <a href="#tabs-profile"
+            class=" bg-neutral-100 flex flex-col items-center gap-1 rounded-lg shadow-lg border-2 border-primary-100 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-400 focus:border-2 focus:bg-secondary-50/50 focus:shadow-xl focus:outline-none focus:ring-0 active:border-primary-accent-200 motion-reduce:transition-none dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
+                data-twe-toggle="pill" data-twe-target="#tabs-profile" role="tab" aria-controls="tabs-profile"
+                aria-selected="false">
+                <span class="text-5xl material-icons-outlined">style</span>
+                <span>Shadow</span>
+            </a>
+        </li>
+        <li class="w-1/2" role="presentation">
+            <a href="#tabs-text-format-tab"
+            class=" bg-neutral-100 flex flex-col items-center gap-1 rounded-lg shadow-lg border-2 border-primary-100 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-400 focus:border-2 focus:bg-secondary-50/50 focus:shadow-xl focus:outline-none focus:ring-0 active:border-primary-accent-200 motion-reduce:transition-none dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
+                data-twe-toggle="pill" data-twe-target="#tabs-text-format-tab" role="tab" aria-controls="tabs-text-format-tab"
+                aria-selected="false">
+                <span class="text-5xl material-icons-outlined">format_color_text</span>
+                <span>Text Format</span>
+            </a>
+        </li>
+
+    </ul>
+
+    <!--Tabs content-->
+    <div class="mb-6 pb-3">
+        <div class="border shadow-sm rounded-md mx-3 px-3 py-1 hidden opacity-100 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
+            id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab" data-twe-tab-active>
+            <app-background (onChange)="onChangeStyle($event)"></app-background>
+        </div>
+        <div class="border shadow-sm rounded-md mx-3 px-3 py-1 hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
+            id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
+            <app-shadow (onChange)="onChangeStyle($event)"></app-shadow>
+        </div>
+        <div class="border shadow-sm rounded-md mx-3 px-3 py-1 hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
+            id="tabs-text-format-tab" role="tabpanel" aria-labelledby="tabs-text-format-tab">
+            Tab 3 content
+        </div>
+    </div>
+</div>

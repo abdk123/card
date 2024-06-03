@@ -3,6 +3,7 @@ import { IStyleModel, StyleModel } from './style.model';
 export interface ISectionModel {
   id?: number;
   name: string;
+  content?:string;
   elementType: string; //div,span,text,button .. etc
 }
 
@@ -18,9 +19,14 @@ export class SectionModel implements ISectionModel {
   id?: number;
   elementType: string;
   name: string;
+  content?:string;
   styles: StyleModel[];
+  updateContent(text:string){
+    this.content = text;
+  }
   updateStyle(style:StyleModel){
-    const itemIndex = this.styles.findIndex((x) => x.type == style.type && x.name == style.name);
+    debugger;
+    const itemIndex = this.styles.findIndex((x) => x.name == style.name);
     if(itemIndex > -1){
       this.styles.splice(itemIndex,1);
     }
@@ -50,7 +56,8 @@ export class SectionModel implements ISectionModel {
   getTag() {
     const cssStyles = this.getStyles() ? `style="${this.getStyles()}"` : '';
     const cssClasses = this.getClasses() ? `class="${this.getClasses()}"` : '';
-    return `<${this.elementType} ${cssClasses} ${cssStyles}></${this.elementType}>`;
+    const text = this.content ? this.content : '';
+    return `<${this.elementType} ${cssClasses} ${cssStyles}>${text}</${this.elementType}>`;
   }
 }
 
