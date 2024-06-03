@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-toggle',
@@ -6,9 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./toggle.component.css']
 })
 export class ToggleComponent {
-  isContentVisible = false;
-
-  toggleContent() {
-    this.isContentVisible = !this.isContentVisible;
+  toggle = false;
+  @Input() title: string;
+  @Input() checked: boolean;
+  @Output() onChange = new EventEmitter<boolean>();
+  
+  onToggle(args:any) {
+    this.toggle = args.target.value;
   }
 }

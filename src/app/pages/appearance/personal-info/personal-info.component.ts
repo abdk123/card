@@ -76,7 +76,6 @@ export class PersonalInfoComponent implements OnInit{
   }
   
   onChangeStyle(style:StyleModel){
-    console.log(style);
     this.profile.widgets
       .find((x) => x.name == 'personalInfo')
       ?.updateStyle(style);

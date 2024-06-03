@@ -31,7 +31,7 @@ export class LiveViewPcComponent implements OnInit {
     'margin-top': '-75px',
   };
   select(){
-    alert();
+    
   }
 
   bgStyle = {};

@@ -5,6 +5,7 @@ export interface IWidgetModel {
   id?: number;
   index: number;
   name: string;
+  enable: boolean;
   type: string; //carousel,header,card,contctInfo..etc
 }
 
@@ -21,7 +22,7 @@ export class WidgetModel implements IWidgetModel {
   index: number;
   name: string;
   type: string;
-  children: WidgetModel[] = [];
+  enable: boolean;
   sections: SectionModel[] = [];
   styles: StyleModel[] = [];
 

@@ -31,8 +31,9 @@
     <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
         <!--  -->
         <!-- Header -->
-        <div [innerHTML]="initialHeader()" [class]="header.getClasses()" [style]="header.getStyles()"></div>
-        <a [innerHTML]="initialPersonalInfo()" [class]="personalInfo.getClasses()" [style]="personalInfo.getStyles()"></a>
+        <div *ngIf="header" [innerHTML]="initialHeader()" [class]="header.getClasses()" [style]="header.getStyles()"></div>
+        <div *ngIf="personalInfo" [innerHTML]="initialPersonalInfo()" [class]="personalInfo.getClasses()" [style]="personalInfo.getStyles()"></div>
+        <div *ngIf="links" [innerHTML]="initialLinks()" [class]="links.getClasses()" [style]="links.getStyles()"></div>
 
     </div>
 </div> 

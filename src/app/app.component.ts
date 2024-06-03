@@ -1,13 +1,9 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ProfileModel } from './shared/models/profile.model';
-import { ShadowModel } from './shared/models/common/shadow.model';
-import { BackgroundModel } from './shared/models/background.model';
 import { AppState } from './shared/state/profile/app.state';
 import { Store } from '@ngrx/store';
 import { update } from './shared/state/profile/action/app.action';
-import { BorderModel } from './shared/models/common/border.model';
-import { ProfileImageModel } from './shared/models/profile.Image.model';
 import { SlideInOutAnimation } from './shared/animation/slideInOut';
 import { Carousel, initTWE } from 'tw-elements';
 import { ProfileHelperService } from './shared/services/profile-helper.service';
@@ -36,7 +32,11 @@ export class AppComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     initTWE({ Carousel  });
-    //this.profile = this.initialProfile();
+    this.dispatchApp();
+    
+  }
+
+  dispatchApp() {
     this.profile = this.profileHelperService.initial(0);
     this.store.dispatch(
       update({

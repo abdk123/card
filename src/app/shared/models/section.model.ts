@@ -20,12 +20,13 @@ export class SectionModel implements ISectionModel {
   elementType: string;
   name: string;
   content?:string;
+  children: SectionModel[] = [];
   styles: StyleModel[];
   updateContent(text:string){
     this.content = text;
   }
   updateStyle(style:StyleModel){
-    debugger;
+    
     const itemIndex = this.styles.findIndex((x) => x.name == style.name);
     if(itemIndex > -1){
       this.styles.splice(itemIndex,1);
@@ -57,7 +58,11 @@ export class SectionModel implements ISectionModel {
     const cssStyles = this.getStyles() ? `style="${this.getStyles()}"` : '';
     const cssClasses = this.getClasses() ? `class="${this.getClasses()}"` : '';
     const text = this.content ? this.content : '';
-    return `<${this.elementType} ${cssClasses} ${cssStyles}>${text}</${this.elementType}>`;
+    let childrenHtml = '';
+    this.children.forEach(child=>{
+      childrenHtml += child.getTag();
+    })
+    return `<${this.elementType} ${cssClasses} ${cssStyles}>${text}${childrenHtml}</${this.elementType}>`;
   }
 }
 

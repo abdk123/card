@@ -43,6 +43,9 @@ import { ProfileHelperService } from './shared/services/profile-helper.service';
 import { FormsModule } from '@angular/forms';
 import { PersonalInfoComponent } from './pages/appearance/personal-info/personal-info.component';
 import { SocialMediaButtonListComponent } from './pages/home/social-media-button-list/social-media-button-list.component';
+import { SocialMediaComponent } from './pages/widgets/social-media/social-media.component';
+import { LinkService } from './shared/services/link.service';
+import { SocialCardComponent } from './pages/home/social-card/social-card.component';
 
 const BootstrapModules = [
   ModalModule.forRoot(),
@@ -83,7 +86,9 @@ const NebularModules = [
     GalleryComponent,
     ThemeComponent,
     PersonalInfoComponent,
-    SocialMediaButtonListComponent
+    SocialMediaButtonListComponent,
+    SocialMediaComponent,
+    SocialCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,7 +111,7 @@ const NebularModules = [
     ...BootstrapModules,
     ...NebularModules,
   ],
-  providers: [ModalService,ProfileHelperService],
+  providers: [ModalService, ProfileHelperService, LinkService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

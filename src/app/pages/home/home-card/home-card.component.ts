@@ -19,7 +19,7 @@ export class HomeCardComponent {
     this.modalService
       .open(modalTemplate, { size: 'lg', title: 'Title' })
       .subscribe((action) => {
-        console.log('modalAction', action);
+        
       });
   }
   

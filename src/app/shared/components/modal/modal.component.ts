@@ -16,7 +16,6 @@ export class ModalComponent<T> {
   constructor(private elementRef: ElementRef) {}
 
   close(): void {
-    console.log("close");
     this.elementRef.nativeElement.remove();
     this.closeEvent.emit();
   }

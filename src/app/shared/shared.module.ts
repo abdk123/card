@@ -22,6 +22,7 @@ import { GradientComponent } from './components/gradient/gradient.component';
 import { SlickComponent } from './components/slick/slick.component';
 import { ShadowComponent } from './components/shadow/shadow.component';
 import { BackgroundComponent } from './components/background/background.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BackgroundComponent } from './components/background/background.componen
     GradientComponent,
     SlickComponent,
     ShadowComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    ColorListComponent
   ],
   imports: [
     CommonModule,
@@ -72,7 +74,8 @@ import { BackgroundComponent } from './components/background/background.componen
     GradientComponent,
     SlickComponent,
     ShadowComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    ColorListComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

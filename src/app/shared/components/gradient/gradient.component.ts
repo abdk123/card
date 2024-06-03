@@ -29,7 +29,6 @@ export class GradientComponent implements OnInit {
   }
 
   changeFromColor(value: string) {
-    alert(value);
     this.model.from = value;
     this.emitChange()
   }

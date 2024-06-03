@@ -1,3 +1,4 @@
+import { LinkModel } from "./link.model";
 import { WidgetModel } from "./widget.model";
 
 export interface IProfile{
@@ -20,5 +21,6 @@ export class ProfileModel implements IProfile {
     userId:number;
     title: string;
     bio: string;
-    widgets:WidgetModel[]
+    widgets:WidgetModel[] = [];
+    links:LinkModel[] = []
 }

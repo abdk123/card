@@ -14,7 +14,7 @@ export class ToolbarComponent {
   constructor( private _modalService: BsModalService,
     public bsModalRef: BsModalRef){}
   onSelect(args:any): void {
-    console.log(args)  }
+      }
 
     showDialog() {
       let uploadDialog: BsModalRef;

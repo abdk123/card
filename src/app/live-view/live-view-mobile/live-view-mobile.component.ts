@@ -13,7 +13,7 @@ import { selectProfile } from 'src/app/shared/state/profile/selectors/app.select
   styleUrls: ['./live-view-mobile.component.css']
 })
 export class LiveViewMobileComponent implements OnInit  {
-  profile:Observable<ProfileModel> = this.store.pipe(select(selectProfile));
+  profile$:Observable<ProfileModel> = this.store.pipe(select(selectProfile));
 
   constructor(
     private store:Store<AppState>,
@@ -40,24 +40,30 @@ export class LiveViewMobileComponent implements OnInit  {
 
   ngOnInit(): void {
     this.initialProfile();
+    this.initialHeader()
+      this.initialPersonalInfo();
+      this.initialLinks();
   }
 
   header:WidgetModel = new WidgetModel();
   personalInfo:WidgetModel = new WidgetModel();
+  links:WidgetModel = new WidgetModel();
+  profile: ProfileModel = new ProfileModel();
   initialProfile() {
-    this.profile.subscribe((result)=>{
+    this.profile$.subscribe((result)=>{
+      this.profile = result;
       
-      this.initialHeader()
-      this.initialPersonalInfo();
+      
       const headerWidget = result.widgets.find(x=>x.index == 0);
       if(headerWidget){
         this.header = headerWidget;
       }
-      const personalInfoWidget = result.widgets.find(x => x.type == 'personalInfo');
+      const personalInfoWidget = result.widgets.find(x=> x.type == 'personalInfo');
       if(personalInfoWidget){
         this.personalInfo = personalInfoWidget;
       }
-    })
+      
+    });
   }
 
   initialHeader(){
@@ -66,5 +72,15 @@ export class LiveViewMobileComponent implements OnInit  {
 
   initialPersonalInfo(){
     return this.sanitizer.bypassSecurityTrustHtml(this.personalInfo.getTags());
+  }
+
+  initialLinks(){
+    var html = '';
+    const linksWidget = this.profile.widgets.find(x=> x.type == 'socialMedia');
+    if(linksWidget){
+      html = linksWidget.getTags();
+      this.links = linksWidget;
+    }
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 }

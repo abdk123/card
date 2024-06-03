@@ -34,7 +34,6 @@ export class BgToolbarComponent implements OnInit {
   }
 
   onChangeBasics(args: BackgroundModel){
-    console.log(args);
     // this.profile.background = args; 
     // this.store.dispatch(
     //   update({
