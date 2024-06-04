@@ -36,11 +36,15 @@ export class WidgetModel implements IWidgetModel {
   }
   getClasses() {
     let classesNames = '';
-    const items = this.styles.filter((x) => x.type == 'class');
+    const items = this.styles.filter(x => x.type === 'class');
     if (items) {
       items.forEach((item) => {
         classesNames += `${item.value} `;
       });
+    }
+    if(this.name == 'contactInfo'){
+      debugger;
+      console.log(classesNames);
     }
     return classesNames;
   }

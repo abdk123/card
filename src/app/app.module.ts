@@ -46,6 +46,8 @@ import { SocialMediaButtonListComponent } from './pages/home/social-media-button
 import { SocialMediaComponent } from './pages/widgets/social-media/social-media.component';
 import { LinkService } from './shared/services/link.service';
 import { SocialCardComponent } from './pages/home/social-card/social-card.component';
+import { ContactInfoComponent } from './pages/widgets/contact-info/contact-info.component';
+import { ContactInfoService } from './shared/services/contact-info.service';
 
 const BootstrapModules = [
   ModalModule.forRoot(),
@@ -89,6 +91,7 @@ const NebularModules = [
     SocialMediaButtonListComponent,
     SocialMediaComponent,
     SocialCardComponent,
+    ContactInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,7 +114,12 @@ const NebularModules = [
     ...BootstrapModules,
     ...NebularModules,
   ],
-  providers: [ModalService, ProfileHelperService, LinkService],
+  providers: [
+    ModalService, 
+    ProfileHelperService, 
+    LinkService,
+    ContactInfoService
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

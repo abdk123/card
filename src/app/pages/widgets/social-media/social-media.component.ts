@@ -29,7 +29,6 @@ export class SocialMediaComponent implements OnInit {
   constructor(
     private sanitizer: DomSanitizer, 
     private route: ActivatedRoute,
-    
     private linkService: LinkService,
     private location: Location) {}
 

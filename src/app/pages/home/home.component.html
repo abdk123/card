@@ -10,17 +10,19 @@
                 type="secondary" [rounded]="'rounded-xl'" icon="eva eva-link-2-outline"> Add Link</app-giant-button>
         </div>
         <div class="w-1/2">
-            <app-giant-button type="primary" [rounded]="'rounded-xl'" icon="eva eva-grid-outline">Add
+            <app-giant-button data-twe-collapse-init data-twe-ripple-init data-twe-ripple-color="light"
+                data-twe-target="#collapseWidgets2" aria-expanded="false" aria-controls="collapseWidgets2"
+                type="primary" [rounded]="'rounded-xl'" icon="eva eva-grid-outline">Add
                 Widgets</app-giant-button>
         </div>
     </div>
+    <!--  -->
     <div class="!visible hidden mt-3 shadow-lg rounded-2xl border" id="collapseWidgets" data-twe-collapse-item>
         <div class="border-b-2 flex justify-between p-4">
             <h2 class="text-2xl">Add new Link</h2>
-            <a class="cursor-pointer text-slate-600 hover:text-slate-700 hover:text-shadow-lg" 
-            data-twe-collapse-init data-twe-ripple-init data-twe-ripple-color="light"
-                data-twe-target="#collapseWidgets" aria-expanded="false" aria-controls="collapseWidgets"
->
+            <a class="cursor-pointer text-slate-600 hover:text-slate-700 hover:text-shadow-lg" data-twe-collapse-init
+                data-twe-ripple-init data-twe-ripple-color="light" data-twe-target="#collapseWidgets"
+                aria-expanded="false" aria-controls="collapseWidgets">
                 <span class="material-icons-outlined">close</span>
             </a>
         </div>
@@ -29,11 +31,22 @@
         </div>
     </div>
     <!--  -->
+    <div class="!visible hidden mt-3 shadow-lg rounded-2xl border" id="collapseWidgets2" data-twe-collapse-item>
+        <div class="py-4 px-3 flex justify-center items-center w-full">
+            <ul class="flex flex-col mx-auto w-full">
+                <li class="rounded-l3 border-b-2 px-1 py-3 text-center w-full hover:bg-gray-100 text-bold hover:shadow-xl"><a
+                    (click)="navigate('/contact')" class="cursor-pointer text-lg text-gray-500 hover:text-gray-600">Contact Info</a></li>
+                <li class="rounded-lg border-b-2 px-1 py-3 text-center w-full hover:bg-gray-100 text-bold hover:shadow-xl"><a
+                        class="cursor-pointer text-lg text-gray-500 hover:text-gray-600">Our Services</a></li>
+                <li class="rounded-lg border-b-2 px-1 py-3 text-center w-full hover:bg-gray-100 text-bold hover:shadow-xl"><a
+                        class="cursor-pointer text-lg text-gray-500 hover:text-gray-600">My Products</a></li>
+                <li class="rounded-lg border-b-2 px-1 py-3 text-center w-full hover:bg-gray-100 text-bold hover:shadow-xl"><a
+                        class="cursor-pointer text-lg text-gray-500 hover:text-gray-600">Gallery</a></li>
 
+            </ul>
+        </div>
+    </div>
     <app-home-card></app-home-card>
     <app-social-card></app-social-card>
 
 </div>
-
-
-

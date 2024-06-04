@@ -40,6 +40,9 @@ export class AppearanceComponent implements OnInit {
       ?.sections.find(x=>x.name == 'background')
       ?.updateStyle({ type: 'style', name: 'background-image', value: `url(${model.url})` });
     }
-    
+  }
+
+  save(){
+    console.log(JSON.stringify(this.profile));
   }
 }

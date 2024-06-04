@@ -1,3 +1,4 @@
+import { ContactInfoModel } from "./contact.model";
 import { LinkModel } from "./link.model";
 import { WidgetModel } from "./widget.model";
 
@@ -22,5 +23,6 @@ export class ProfileModel implements IProfile {
     title: string;
     bio: string;
     widgets:WidgetModel[] = [];
-    links:LinkModel[] = []
+    links:LinkModel[] = [];
+    contactInfo:ContactInfoModel = new ContactInfoModel();
 }

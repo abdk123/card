@@ -1,4 +1,4 @@
-<!-- <div class="flex justify-content-center mx-auto overflow-scroll">
+<div class="flex justify-content-center mx-auto overflow-scroll">
     <div class="marvel-device iphone-x">
         <div class="notch">
             <div class="camera"></div>
@@ -14,14 +14,15 @@
             <div class="shadow shadow--br"></div>
             <div class="shadow shadow--bl"></div>
         </div>
-        <div class="screen">
-            <div [innerHTML]="initialHeader()" [class]="header.getClasses()" [style]="header.getStyles()"></div>
-            <div [innerHTML]="initialPersonalInfo()" [class]="personalInfo.getClasses()" [style]="personalInfo.getStyles()"></div>
-    
+        <div class="screen no-scrollbar" style="overflow-y: scroll;">
+            <div *ngIf="header" [innerHTML]="initialHeader()" [class]="header.getClasses()" [style]="header.getStyles()"></div>
+            <div *ngIf="personalInfo" [innerHTML]="initialPersonalInfo()" [class]="personalInfo.getClasses()" [style]="personalInfo.getStyles()"></div>
+            <div *ngIf="links" [innerHTML]="initialLinks()" [class]="links.getClasses()" [style]="links.getStyles()"></div>
+            <div *ngIf="contactInfo" [innerHTML]="initialContactInfo()" [class]="contactInfo.getClasses()" [style]="contactInfo.getStyles()"></div>
         </div> 
     </div>
-</div> -->
-
+</div>
+<!-- 
 <div
     class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
     <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
@@ -29,11 +30,11 @@
     <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
     <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
     <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-        <!--  -->
-        <!-- Header -->
+        
         <div *ngIf="header" [innerHTML]="initialHeader()" [class]="header.getClasses()" [style]="header.getStyles()"></div>
         <div *ngIf="personalInfo" [innerHTML]="initialPersonalInfo()" [class]="personalInfo.getClasses()" [style]="personalInfo.getStyles()"></div>
         <div *ngIf="links" [innerHTML]="initialLinks()" [class]="links.getClasses()" [style]="links.getStyles()"></div>
+        <div *ngIf="contactInfo" [innerHTML]="initialContactInfo()" [class]="contactInfo.getClasses()" [style]="contactInfo.getStyles()"></div>
 
     </div>
-</div> 
+</div>  -->

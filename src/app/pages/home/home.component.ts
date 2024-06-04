@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   Collapse,
   initTWE,
@@ -15,6 +16,8 @@ export class HomeComponent implements OnInit {
   @Input() type: 'primary' | 'secondary' | 'danger' = 'primary';
   @Input() disabled = false;
 
+  constructor(private router: Router) {}
+  
   ngOnInit(): void {
     initTWE({ Collapse });
   }
@@ -31,5 +34,8 @@ export class HomeComponent implements OnInit {
     return `${baseClass} ${typeClass[this.type]} ${disabledClass}`;
   }
 
+  navigate(url:string){
+    this.router.navigateByUrl(url);
+  }
   
 }
